@@ -1,11 +1,10 @@
 ---
 import "../styles/global.css";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import HeaderLegales from "../components/legales/HeaderLegales.astro";
+import FooterLegales from "../components/legales/FooterLegales.astro";
 
 import { company } from "../data/company.js";
 import { seo } from "../data/seo.js";
-import { testimonials, faq } from "../data/testimonials.js";
 
 interface Props {
   title?: string;
@@ -105,19 +104,6 @@ const websiteSchema = {
     "query-input": "required name=search_term_string"
   }
 };
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": faq.map(f => ({
-    "@type": "Question",
-    "name": f.question,
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": f.answer
-    }
-  }))
-};
 ---
 
 <!doctype html>
@@ -194,15 +180,14 @@ const faqSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(medicalClinicSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </head>
 
   <body class="bg-gray-50 text-gray-800 antialiased">
-    <Header />
+    <HeaderLegales />
     <main>
       <slot />
     </main>
-    <Footer />
+    <FooterLegales />
   </body>
 </html>
 

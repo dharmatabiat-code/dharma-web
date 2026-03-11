@@ -1,0 +1,21 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://dharma.com.mx/sitemap.xml
+
+# Crawl-delay (optional, for politeness)
+Crawl-delay: 1
+
+# Disallow admin/private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /_/
+
+# Allow static assets
+Allow: /fonts/
+Allow: /images/
+Allow: /logos/
+Allow: /styles/
+

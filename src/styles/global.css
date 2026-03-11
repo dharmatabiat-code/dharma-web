@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+@theme {
+  /* Gold Color Palette */
+  --color-gold-50: #fdfaf3;
+  --color-gold-100: #f9f0d9;
+  --color-gold-200: #f2e0a8;
+  --color-gold-300: #e9c96b;
+  --color-gold-400: #dfb33d;
+  --color-gold-500: #d4a52a;
+  --color-gold-600: #b8922a;
+  --color-gold-700: #947a32;
+  --color-gold-800: #756336;
+  --color-gold-900: #5c4d2e;
+  
+  /* Primary Gold */
+  --color-primary-gold: #d4a52a;
+  --color-primary-gold-light: #e9c96b;
+  --color-primary-gold-dark: #b8922a;
+  
+  /* Background colors */
+  --color-bg-dark: #ffffff;
+  --color-bg-card: #f8f9fa;
+  --color-text-light: #1a1a1a;
+  --color-text-muted: #6c757d;
+
+  /* Font family */
+  --font-family-sans: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family-sans);
+  background-color: var(--color-bg-dark);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes glow {
+  from { text-shadow: 0 0 10px rgba(212, 165, 42, 0.5); }
+  to { text-shadow: 0 0 20px rgba(212, 165, 42, 0.8), 0 0 30px rgba(212, 165, 42, 0.4); }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-10px); }
+  60% { transform: translateX(-50%) translateY(-5px); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+/* Custom utilities using Tailwind */
+@layer utilities {
+  .text-gold {
+    color: var(--color-primary-gold);
+  }
+  
+  .text-gold-light {
+    color: var(--color-gold-300);
+  }
+  
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, var(--color-gold-500) 0%, var(--color-gold-600) 100%);
+  }
+  
+  .bg-gold-gradient-hover:hover {
+    background: linear-gradient(135deg, var(--color-gold-400) 0%, var(--color-gold-500) 100%);
+  }
+  
+  .border-gold {
+    border-color: rgba(212, 165, 42, 0.2);
+  }
+  
+  .shadow-gold {
+    box-shadow: 0 10px 30px rgba(212, 165, 42, 0.3);
+  }
+  
+  .shadow-gold-hover:hover {
+    box-shadow: 0 20px 40px rgba(212, 165, 42, 0.15);
+  }
+  
+  .gradient-text-gold {
+    background: linear-gradient(135deg, var(--color-gold-300) 0%, var(--color-gold-500) 50%, var(--color-gold-300) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .gold-shimmer {
+    background: linear-gradient(
+      90deg,
+      var(--color-gold-700) 0%,
+      var(--color-gold-500) 25%,
+      var(--color-gold-300) 50%,
+      var(--color-gold-500) 75%,
+      var(--color-gold-700) 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer 3s linear infinite;
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+  }
+  
+  .animate-delay-1 {
+    animation-delay: 0.2s;
+  }
+  
+  .animate-delay-2 {
+    animation-delay: 0.4s;
+  }
+  
+  .animate-delay-3 {
+    animation-delay: 0.6s;
+  }
+  
+  .animate-bounce-custom {
+    animation: bounce 2s infinite;
+  }
+  
+  .animate-pulse-custom {
+    animation: pulse 2s infinite;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .bg-pattern {
+    background-color: rgba(255, 255, 255, 0.7);
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4a52a' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  .select-gold {
+    width: 100%;
+    background-color: #f9fafb;
+    border: 1px solid rgba(212, 165, 42, 0.3);
+    color: #1f2937;
+    padding: 14px 44px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+  }
+
+  .select-gold:focus {
+    outline: none;
+    border-color: #d4a52a;
+    box-shadow: 0 0 0 3px rgba(212, 165, 42, 0.1);
+  }
+}
+

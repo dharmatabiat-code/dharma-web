@@ -1,0 +1,275 @@
+---
+---
+
+<header
+  id="main-header"
+  class="fixed top-0 left-0 right-0 z-50 bg-transparent transition-all duration-300"
+>
+  <div class="max-w-420 mx-auto px-5 md:px-5 py-3 md:py-3.75 flex items-center justify-between">
+    <div class="flex items-center gap-2.5">
+      <a href="/" class="flex items-center" aria-label="Ir a inicio">
+        <img
+          id="main-logo"
+          src="/logos/logo-largo.png"
+          class="h-12 md:h-18 w-auto object-contain transition-all duration-300 hover:scale-105"
+          alt="Logo DHARMA"
+        />
+      </a>
+    </div>
+
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex gap-7.5">
+      <a href="#inicio" class="nav-link">
+        <span>Inicio</span>
+      </a>
+      <a href="#acerca" class="nav-link">
+        <span>Acerca de Dharma</span>
+      </a>
+      <a href="#servicios" class="nav-link">
+        <span>Servicios</span>
+      </a>
+      <a href="#beneficios" class="nav-link">
+        <span>Beneficios</span>
+      </a>
+      <a href="#testimonios" class="nav-link">
+        <span>Testimonios</span>
+      </a>
+      <a href="#contacto" class="nav-link">
+        <span>Contacto</span>
+      </a>
+
+      <a
+        href="#contacto"
+        class="bg-linear-to-r from-amber-500 to-amber-600 text-white font-semibold px-5 py-2.5 rounded-full transition-all duration-300 hover:from-amber-400 hover:to-amber-500 hover:-translate-y-0.5 hover:shadow-lg flex items-center gap-2 text-sm"
+      >
+        <i class="fas fa-calendar-alt"></i>
+        <span>Agenda Consulta</span>
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button 
+      id="mobile-menu-btn" 
+      type="button"
+      class="md:hidden p-2 text-gray-700 focus:outline-none"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+    >
+      <i class="fas fa-bars text-2xl"></i>
+    </button>
+  </div>
+</header>
+
+<!-- Mobile Menu Overlay -->
+<div 
+  id="mobile-menu" 
+  class="fixed inset-0 z-100 bg-black/50 opacity-0 visibility-hidden transition-all duration-300 md:hidden pointer-events-none"
+>
+  <!-- Mobile Menu Sidebar -->
+  <div 
+    id="mobile-menu-sidebar"
+    class="absolute top-0 right-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl transform translate-x-full transition-transform duration-300 ease-out z-110"
+  >
+    <!-- Mobile Menu Header -->
+    <div class="flex items-center justify-between p-5 border-b border-gray-100">
+      <span class="text-lg font-semibold text-gray-800">Menú</span>
+      <button 
+        id="mobile-menu-close" 
+        class="p-2 text-gray-500 hover:text-gray-700 focus:outline-none"
+        aria-label="Cerrar menú"
+      >
+        <i class="fas fa-times text-xl"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Links -->
+    <nav class="flex flex-col p-5 gap-2">
+      <a href="#inicio" class="mobile-nav-link">
+        <i class="fas fa-home w-6"></i>
+        <span>Inicio</span>
+      </a>
+      <a href="#acerca" class="mobile-nav-link">
+        <i class="fas fa-info-circle w-6"></i>
+        <span>Acerca de Dharma</span>
+      </a>
+      <a href="#servicios" class="mobile-nav-link">
+        <i class="fas fa-stethoscope w-6"></i>
+        <span>Servicios</span>
+      </a>
+      <a href="#beneficios" class="mobile-nav-link">
+        <i class="fas fa-heart w-6"></i>
+        <span>Beneficios</span>
+      </a>
+      <a href="#testimonios" class="mobile-nav-link">
+        <i class="fas fa-quote-left w-6"></i>
+        <span>Testimonios</span>
+      </a>
+      <a href="#contacto" class="mobile-nav-link">
+        <i class="fas fa-envelope w-6"></i>
+        <span>Contacto</span>
+      </a>
+
+      <div class="my-4 border-t border-gray-100"></div>
+
+      <a
+        href="#contacto"
+        class="bg-linear-to-r from-amber-500 to-amber-600 text-white font-semibold px-5 py-3 rounded-full transition-all duration-300 hover:from-amber-400 hover:to-amber-500 flex items-center justify-center gap-2 text-sm"
+      >
+        <i class="fas fa-calendar-alt"></i>
+        <span>Agenda Consulta</span>
+      </a>
+    </nav>
+  </div>
+</div>
+
+<script>
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuSidebar = document.getElementById('mobile-menu-sidebar');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+  // Open mobile menu
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu?.classList.remove('opacity-0', 'visibility-hidden', 'pointer-events-none');
+      mobileMenu?.classList.add('opacity-100', 'visibility-visible', 'pointer-events-auto');
+      mobileMenuSidebar?.classList.remove('translate-x-full');
+      document.body.style.overflow = 'hidden';
+    });
+  }
+
+  // Close mobile menu
+  const closeMenu = () => {
+    mobileMenu?.classList.add('opacity-0', 'visibility-hidden', 'pointer-events-none');
+    mobileMenu?.classList.remove('opacity-100', 'visibility-visible', 'pointer-events-auto');
+    mobileMenuSidebar?.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+  };
+
+  if (mobileMenuClose) {
+    mobileMenuClose.addEventListener('click', closeMenu);
+  }
+
+  // Close when clicking overlay
+  if (mobileMenu) {
+    mobileMenu.addEventListener('click', (e) => {
+      if (e.target === mobileMenu) {
+        closeMenu();
+      }
+    });
+  }
+
+  // Close on link click
+  mobileNavLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMenu();
+    }
+  });
+
+  // Header scroll effect
+  const header = document.getElementById('main-header');
+  
+  if (header) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('bg-white/95', 'backdrop-blur-sm', 'shadow-sm');
+        header.classList.remove('bg-transparent');
+      } else {
+        header.classList.remove('bg-white/95', 'backdrop-blur-sm', 'shadow-sm');
+        header.classList.add('bg-transparent');
+      }
+    });
+  }
+</script>
+
+<style>
+  .nav-link {
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+  }
+
+  .nav-link:hover {
+    color: #fbbf24;
+  }
+
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: #d4a52a;
+    transition: width 0.3s ease;
+  }
+
+  .nav-link:hover::after {
+    width: 100%;
+  }
+
+  /* Mobile Nav Link Styles */
+  .mobile-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1rem;
+    color: #1f2937;
+    text-decoration: none;
+    font-weight: 500;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .mobile-nav-link:hover {
+    background-color: #fef3c7;
+    color: #d4a52a;
+  }
+
+  .mobile-nav-link i {
+    color: #d4a52a;
+    width: 1.5rem;
+    text-align: center;
+  }
+
+  @media (min-width: 768px) {
+    nav {
+      display: flex;
+    }
+    #mobile-menu-btn {
+      display: none;
+    }
+  }
+
+  /* Tablet navigation - hide some links or make more compact */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    nav.gap-7\.5 {
+      gap: 1rem;
+    }
+    
+    nav .nav-link span {
+      font-size: 0.875rem;
+    }
+    
+    nav a[href="#contacto"] span {
+      display: none;
+    }
+    
+    nav a[href="#contacto"]::before {
+      content: "\f073";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+    }
+  }
+</style>
