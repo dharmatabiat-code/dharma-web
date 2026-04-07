@@ -1,0 +1,39 @@
+---
+import { company } from "../../data/company";
+
+interface Props {
+  companyData?: typeof company;
+}
+
+const { companyData = company } = Astro.props;
+---
+
+<section class="py-2 bg-slate-50 relative overflow-hidden" data-aos="fade-up">
+  <div class="m-2 rounded-[3rem] overflow-hidden shadow-2xl shadow-amber-900/5 border-8 border-white relative group">
+    <div class="absolute inset-0 pointer-events-none border border-amber-200/20 rounded-[2.5rem] z-10"></div>
+    <iframe src={companyData.address.mapLink}
+      class="w-full h-112.5 grayscale-[0.2] contrast-[1.1] transition-all duration-700 group-hover:grayscale-0"
+      style="border:0;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+
+    <div class="absolute bottom-6 left-6 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-amber-100 hidden md:block z-20">
+      <div class="flex items-center gap-3 mb-2">
+        <div class="w-8 h-8 bg-amber-500 rounded-lg flex items-center justify-center text-white text-xs">
+          <i class="fas fa-route"></i>
+        </div>
+        <span class="font-bold text-slate-800 text-sm">¿Cómo llegar?</span>
+      </div>
+      <p class="text-slate-500 text-xs mb-3">{companyData.address}</p>
+      <a
+        href="https://maps.google.com"
+        target="_blank"
+        class="text-amber-600 font-bold text-xs hover:text-amber-700 flex items-center gap-1"
+      >
+        ABRIR EN GOOGLE MAPS <i class="fas fa-external-link-alt text-[10px]"></i>
+      </a>
+    </div>
+  </div>
+</section>

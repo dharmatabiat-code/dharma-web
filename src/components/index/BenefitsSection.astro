@@ -1,0 +1,79 @@
+---
+import { benefits } from "../../data/services";
+
+interface Props {
+  benefitsData?: typeof benefits;
+  imageSrc?: string;
+  imageAlt?: string;
+}
+
+const {
+  benefitsData = benefits,
+  imageSrc = "/images/beneficios/2.png",
+  imageAlt = "Beneficios Medicina Bioregenerativa",
+} = Astro.props;
+---
+
+<section id="beneficios" class="py-25 bg-white" data-aos="fade-up">
+  <div class="max-w-350 mx-auto px-5">
+    <div class="text-center mb-15" data-aos="fade-up" data-aos-delay="200">
+      <span
+        class="inline-block bg-linear-to-r from-amber-700 to-amber-500 text-white px-5 py-2 rounded-full text-sm font-semibold tracking-wider uppercase mb-5"
+        ><i class="fas fa-award mr-2"></i> ¿Por Qué Elegirnos?</span
+      >
+      <h2 class="text-4xl md:text-5xl font-serif text-slate-900 mb-4">
+        Beneficios de la Medicina Bioregenerativa
+      </h2>
+      <div
+        class="h-0.75 w-20 bg-linear-to-r from-amber-500 via-amber-300 to-amber-500 mx-auto"
+      >
+      </div>
+    </div>
+
+    <div class="flex flex-col lg:flex-row items-center gap-8 lg:gap-12 max-w-7xl mx-auto" data-aos="fade-up" data-aos-delay="400">
+      <div class="flex-1 grid grid-cols-1 gap-6 w-full order-2 lg:order-1">
+        {benefitsData.slice(0, 3).map((benefit, index) => (
+          <div class="p-6 border-r-[3px] border-amber-500 bg-white shadow-sm hover:shadow-md transition-shadow text-right" data-aos="fade-up" data-aos-delay={index * 100 + 200}>
+            <div class="text-5xl font-bold text-amber-500 opacity-20 mb-2">{benefit.number}</div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2 flex flex-row-reverse items-center gap-3">
+              <i class={`${benefit.icon} text-amber-500`} /> {benefit.title}
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="flex-1 w-full max-w-md order-1 lg:order-2 px-4">
+        <div class="relative group">
+          <div class="absolute -inset-6 border border-dashed border-amber-400/30 rounded-full group-hover:rotate-180 transition-transform duration-4000 ease-linear"></div>
+
+          <div class="relative h-105 md:h-145 rounded-full overflow-hidden border-10 border-white shadow-[0_20px_50px_rgba(0,0,0,0.1)] isolate">
+            <img
+              src={imageSrc}
+              alt={imageAlt}
+              class="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-1000 ease-out"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-linear-to-tr from-amber-500/5 via-transparent to-white/10"></div>
+          </div>
+
+          <div class="absolute -bottom-4 -right-4 bg-white p-4 rounded-2xl shadow-lg border border-amber-100 hidden md:block">
+            <i class="fas fa-shield-alt text-amber-500 text-xl"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-1 grid grid-cols-1 gap-6 w-full order-3">
+        {benefitsData.slice(3, 6).map((benefit, index) => (
+          <div class="p-6 border-l-[3px] border-amber-500 bg-white shadow-sm hover:shadow-md transition-shadow text-left" data-aos="fade-up" data-aos-delay={index * 100 + 200}>
+            <div class="text-5xl font-bold text-amber-500 opacity-20 mb-2">{benefit.number}</div>
+            <h3 class="text-lg font-bold text-gray-800 mb-2 flex items-center gap-3">
+              <i class={`${benefit.icon} text-amber-500`} /> {benefit.title}
+            </h3>
+            <p class="text-sm text-gray-500 leading-relaxed">{benefit.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

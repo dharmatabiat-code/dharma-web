@@ -1,0 +1,28 @@
+---
+interface Props {
+  menuItems: { label: string; href: string }[];
+}
+
+const { menuItems } = Astro.props;
+---
+
+<div class="flex flex-col items-center md:items-start">
+  <h4 class="text-slate-900 font-bold mb-10 text-[10px] uppercase tracking-[0.4em] flex items-center gap-3">
+    <span class="w-1 h-1 bg-amber-500 rounded-full"></span> Menú
+  </h4>
+  <nav role="navigation" aria-label="Navegación del footer">
+    <ul class="space-y-5">
+      {menuItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="text-slate-500 hover:text-amber-600 transition-all duration-300 text-[12px] font-bold tracking-widest uppercase flex items-center group"
+          >
+            <span class="h-px w-0 bg-amber-400 group-hover:w-4 mr-0 group-hover:mr-3 transition-all duration-300"></span>
+            {item.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</div>

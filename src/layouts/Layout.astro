@@ -13,10 +13,10 @@ interface Props {
   canonicalURL?: string;
 }
 
-const { 
-  title = seo.meta.title.default, 
+const {
+  title = seo.meta.title.default,
   description = seo.meta.description.default,
-  canonicalURL = Astro.url.href
+  canonicalURL = Astro.url.href,
 } = Astro.props;
 
 // Build full URL
@@ -27,110 +27,121 @@ const defaultImage = "/logos/logo-largo.png";
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": seo.schema.organization.name,
-  "url": seo.schema.organization.url,
-  "logo": siteUrl + seo.schema.organization.logo,
-  "description": seo.schema.organization.description,
-  "sameAs": seo.schema.organization.sameAs,
-  "contactPoint": {
+  name: seo.schema.organization.name,
+  url: seo.schema.organization.url,
+  logo: siteUrl + seo.schema.organization.logo,
+  description: seo.schema.organization.description,
+  sameAs: seo.schema.organization.sameAs,
+  contactPoint: {
     "@type": "ContactPoint",
-    "telephone": company.contact.phone,
-    "contactType": "customer service",
-    "availableLanguage": ["Spanish", "English"]
+    telephone: company.contact.phone,
+    contactType: "customer service",
+    availableLanguage: ["Spanish", "English"],
   },
-  "address": {
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": company.address.street + ", " + company.address.colony,
-    "addressLocality": company.address.city,
-    "addressRegion": company.address.state,
-    "postalCode": company.address.zip,
-    "addressCountry": company.address.country
-  }
+    streetAddress: company.address.street + ", " + company.address.colony,
+    addressLocality: company.address.city,
+    addressRegion: company.address.state,
+    postalCode: company.address.zip,
+    addressCountry: company.address.country,
+  },
 };
 
 const medicalClinicSchema = {
   "@context": "https://schema.org",
   "@type": "MedicalClinic",
-  "name": seo.schema.medicalClinic.name,
-  "description": seo.schema.medicalClinic.description,
-  "url": siteUrl,
-  "logo": siteUrl + seo.schema.organization.logo,
-  "image": siteUrl + defaultImage,
-  "priceRange": seo.schema.medicalClinic.priceRange,
-  "paymentAccepted": seo.schema.medicalClinic.paymentAccepted,
-  "currenciesAccepted": seo.schema.medicalClinic.currenciesAccepted,
-  "address": {
+  name: seo.schema.medicalClinic.name,
+  description: seo.schema.medicalClinic.description,
+  url: siteUrl,
+  logo: siteUrl + seo.schema.organization.logo,
+  image: siteUrl + defaultImage,
+  priceRange: seo.schema.medicalClinic.priceRange,
+  paymentAccepted: seo.schema.medicalClinic.paymentAccepted,
+  currenciesAccepted: seo.schema.medicalClinic.currenciesAccepted,
+  address: {
     "@type": "PostalAddress",
-    "streetAddress": company.address.street + ", " + company.address.colony,
-    "addressLocality": company.address.city,
-    "addressRegion": company.address.state,
-    "postalCode": company.address.zip,
-    "addressCountry": company.address.country
+    streetAddress: company.address.street + ", " + company.address.colony,
+    addressLocality: company.address.city,
+    addressRegion: company.address.state,
+    postalCode: company.address.zip,
+    addressCountry: company.address.country,
   },
-  "telephone": company.contact.phone,
-  "email": company.contact.email,
-  "openingHoursSpecification": [
+  telephone: company.contact.phone,
+  email: company.contact.email,
+  openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "09:00",
-      "closes": "20:00"
-    }
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      opens: "09:00",
+      closes: "20:00",
+    },
   ],
-  "aggregateRating": {
+  aggregateRating: {
     "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "150",
-    "bestRating": "5"
+    ratingValue: "4.9",
+    reviewCount: "150",
+    bestRating: "5",
   },
-  "medicalSpecialty": [
+  medicalSpecialty: [
     "Regenerative Medicine",
     "Anti-Aging Medicine",
     "Stem Cell Therapy",
-    "Platelet Rich Plasma"
-  ]
+    "Platelet Rich Plasma",
+  ],
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": seo.site.name,
-  "url": siteUrl,
-  "potentialAction": {
+  name: seo.site.name,
+  url: siteUrl,
+  potentialAction: {
     "@type": "SearchAction",
-    "target": {
+    target: {
       "@type": "EntryPoint",
-      "urlTemplate": siteUrl + "/?s={search_term_string}"
+      urlTemplate: siteUrl + "/?s={search_term_string}",
     },
-    "query-input": "required name=search_term_string"
-  }
+    "query-input": "required name=search_term_string",
+  },
 };
 
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "mainEntity": faq.map(f => ({
+  mainEntity: faq.map((f) => ({
     "@type": "Question",
-    "name": f.question,
-    "acceptedAnswer": {
+    name: f.question,
+    acceptedAnswer: {
       "@type": "Answer",
-      "text": f.answer
-    }
-  }))
+      text: f.answer,
+    },
+  })),
 };
 ---
 
 <!doctype html>
-<html lang={seo.site.language} itemscope itemtype="https://schema.org/MedicalClinic">
+<html
+  lang={seo.site.language}
+  itemscope
+  itemtype="https://schema.org/MedicalClinic"
+>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/ICONO.png" />
     <link rel="icon" href="/1.jpeg" />
     <link rel="apple-touch-icon" href="/ICONO.png" />
-    
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -139,12 +150,15 @@ const faqSchema = {
     <meta name="publisher" content={seo.meta.publisher} />
     <meta name="copyright" content={seo.meta.copyright} />
     <meta name="language" content={seo.site.language} />
-    <meta name="robots" content={`index, follow${seo.meta.robots.noarchive ? ', noarchive' : ''}`} />
+    <meta
+      name="robots"
+      content={`index, follow${seo.meta.robots.noarchive ? ", noarchive" : ""}`}
+    />
     <meta name="revisit-after" content="7 days" />
-    
+
     <!-- Canonical URL -->
     <link rel="canonical" href={canonicalURL} />
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content={seo.openGraph.type} />
     <meta property="og:url" content={canonicalURL} />
@@ -152,9 +166,12 @@ const faqSchema = {
     <meta property="og:description" content={description} />
     <meta property="og:image" content={siteUrl + defaultImage} />
     <meta property="og:locale" content={seo.openGraph.locale} />
-    <meta property="og:locale:alternate" content={seo.openGraph.localeAlternate[0]} />
+    <meta
+      property="og:locale:alternate"
+      content={seo.openGraph.localeAlternate[0]}
+    />
     <meta property="og:site_name" content={seo.openGraph.siteName} />
-    
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content={seo.twitter.card} />
     <meta name="twitter:site" content={seo.twitter.site} />
@@ -162,47 +179,114 @@ const faqSchema = {
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={siteUrl + defaultImage} />
-    
+
     <!-- Additional SEO Tags -->
     <meta name="geo.region" content="MX-CMX" />
     <meta name="geo.placename" content={company.address.city} />
     <meta name="geo.position" content="19.4326;-99.1332" />
     <meta name="ICBM" content="19.4326, -99.1332" />
-    
+
     <!-- Keywords -->
     <meta name="keywords" content={seo.meta.keywords.join(", ")} />
-    
+
     <!-- Generator -->
     <meta name="generator" content={Astro.generator} />
-    
+
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
-    
+
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+
     <!-- Material Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
     <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(medicalClinicSchema)} />
-    <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(organizationSchema)}
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(medicalClinicSchema)}
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(websiteSchema)}
+    />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </head>
 
   <body class="bg-gray-50 text-gray-800 antialiased">
+
+  <div id="preloader" class="fixed inset-0 z-9999 flex flex-col items-center justify-center bg-white transition-opacity duration-1000">
+    <div class="flex flex-col items-center">
+      <div class="w-1.5 h-1.5 bg-amber-500 rounded-full animate-ping mb-6"></div>
+      
+      <p class="text-[10px] md:text-xs uppercase tracking-[0.6em] text-slate-800 font-medium animate-pulse ml-[0.6em]">
+        Bienvenido a Dharma
+      </p>
+    </div>
+  </div>
+
     <Header />
     <main>
       <slot />
     </main>
     <Footer />
+
+    <!-- AOS JS -->
+    <script>
+      import AOS from "aos";
+      import "aos/dist/aos.css";
+
+      const handleLoader = () => {
+        const loader = document.getElementById("preloader");
+        if (loader) {
+          // Esperamos a que todo el contenido (imágenes incluidas) cargue
+          window.addEventListener("load", () => {
+            loader.classList.add("opacity-0", "pointer-events-none");
+            // Inicializamos AOS justo después de que el loader se vaya
+            initAOS();
+          });
+        }
+      };
+
+      const initAOS = () => {
+        AOS.init({
+          duration: 1000,
+          once: true,
+          offset: 120,
+        });
+      };
+
+      // Ejecutar lógica
+      handleLoader();
+
+      // Para transiciones de Astro (ViewTransitions)
+      document.addEventListener("astro:after-swap", () => {
+        initAOS();
+        // En cambios de página internos no solemos mostrar el loader de nuevo
+      });
+    </script>
   </body>
 </html>
 
@@ -219,12 +303,12 @@ const faqSchema = {
     --gold-700: #947a32;
     --gold-800: #756336;
     --gold-900: #5c4d2e;
-    
+
     /* Primary Gold */
     --primary-gold: #d4a52a;
     --primary-gold-light: #e9c96b;
     --primary-gold-dark: #b8922a;
-    
+
     /* Background colors - Light Theme */
     --bg-dark: #ffffff;
     --bg-card: #f8f9fa;
@@ -232,7 +316,7 @@ const faqSchema = {
     --text-muted: #6c757d;
 
     /* Font */
-    --font-main: 'Plus Jakarta Sans', sans-serif;
+    --font-main: "Plus Jakarta Sans", sans-serif;
   }
 
   html,
@@ -249,6 +333,25 @@ const faqSchema = {
   main {
     min-height: 100vh;
   }
+
+@keyframes loading-bar {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-loading-bar {
+  animation: loading-bar 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1.5s ease-out forwards;
+}
 
   /* Scrollbar styling */
   ::-webkit-scrollbar {
@@ -274,4 +377,3 @@ const faqSchema = {
     color: var(--bg-dark);
   }
 </style>
-

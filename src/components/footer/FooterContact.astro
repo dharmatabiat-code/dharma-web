@@ -1,0 +1,44 @@
+---
+interface Props {
+  address: { street: string; city: string };
+  phone: string;
+  email: string;
+}
+
+const { address, phone, email } = Astro.props;
+---
+
+<div class="flex flex-col items-center md:items-start" data-aos="fade-up" data-aos-delay="200">
+  <h4 class="text-slate-900 font-bold mb-10 text-[10px] uppercase tracking-[0.4em] flex items-center gap-3">
+    <span class="w-1 h-1 bg-amber-500 rounded-full"></span> Contacto
+  </h4>
+  <address class="not-italic">
+    <ul class="space-y-6">
+      <li class="flex items-start gap-4 group cursor-default">
+        <div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shrink-0 transition-colors group-hover:bg-amber-600 group-hover:text-white">
+          <i class="fas fa-map-marker-alt text-xs"></i>
+        </div>
+        <span class="text-slate-500 text-[13px] leading-relaxed font-light">
+          {address.street}<br/>
+          <span class="font-bold text-slate-800">{address.city}, Perú</span>
+        </span>
+      </li>
+      <li class="flex items-center gap-4 group">
+        <div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shrink-0 transition-colors group-hover:bg-amber-600 group-hover:text-white">
+          <i class="fas fa-phone-alt text-xs"></i>
+        </div>
+        <a href={`tel:${phone}`} class="text-slate-500 text-[13px] font-medium hover:text-amber-600 transition-colors">
+          {phone}
+        </a>
+      </li>
+      <li class="flex items-center gap-4 group">
+        <div class="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 shrink-0 transition-colors group-hover:bg-amber-600 group-hover:text-white">
+          <i class="fas fa-envelope text-[10px]"></i>
+        </div>
+        <a href={`mailto:${email}`} class="text-slate-500 text-[13px] font-medium hover:text-amber-600 transition-colors break-all">
+          {email}
+        </a>
+      </li>
+    </ul>
+  </address>
+</div>

@@ -15,7 +15,8 @@ export const services = [
       "Regeneración tisular natural",
       "Tratamiento no invasivo",
       "Resultados duraderos"
-    ]
+    ],
+    image: "/images/services/celulas-madre.jpg"
   },
   {
     id: "prp",
@@ -32,7 +33,8 @@ export const services = [
       "100% autólogo y seguro",
       "Sin riesgo de rechazo",
       "Tiempo de recuperación mínimo"
-    ]
+    ],
+    image: "/images/services/prp.jpg"
   },
   {
     id: "medicina-regenerativa",
@@ -49,7 +51,8 @@ export const services = [
       "Enfoque integral",
       "Personalización total",
       "Tecnología de punta"
-    ]
+    ],
+    image: "/images/services/medicina-regenerativa.jpg"
   },
   {
     id: "terapias-regeneracion",
@@ -66,7 +69,8 @@ export const services = [
       "Estimulación natural",
       "Mejora del sistema inmune",
       "Aumento de energía"
-    ]
+    ],
+    image: "/images/services/terapias-regeneracion.jpg"
   },
   {
     id: "esteticos",
@@ -83,7 +87,8 @@ export const services = [
       "Sin cirugía",
       "Resultados naturales",
       "Sin tiempo de recuperación"
-    ]
+    ],
+    image: "/images/services/esteticos.jpg"
   },
   {
     id: "antiaging",
@@ -100,7 +105,8 @@ export const services = [
       "Mejora de calidad de vida",
       "Prevención de enfermedades",
       "Longevidad saludable"
-    ]
+    ],
+    image: "/images/services/antiaging.jpg"
   }
 ];
 

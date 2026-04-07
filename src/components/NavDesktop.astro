@@ -1,0 +1,30 @@
+---
+// src/components/NavDesktop.astro
+interface Props {
+  navItems: { label: string; href: string }[];
+}
+
+const { navItems } = Astro.props;
+---
+<nav class="hidden lg:flex items-center gap-10" role="navigation" aria-label="Navegación principal">
+  {navItems.map((item) => (
+    <a
+      href={item.href}
+      class="nav-link relative text-slate-700 font-medium text-[13px] tracking-[0.15em] uppercase hover:text-amber-600 transition-colors duration-300 group"
+    >
+      {item.label}
+      <span class="absolute -bottom-2 left-1/2 w-0 h-0.5 bg-amber-500 transition-all duration-300 group-hover:w-full group-hover:left-0" />
+    </a>
+  ))}
+
+  <a
+    href="#contacto"
+    class="group relative overflow-hidden ml-4 bg-slate-900 text-white text-[11px] font-bold tracking-[0.2em] px-8 py-4 rounded-full transition-all duration-500 hover:shadow-[0_10px_30px_rgba(217,164,4,0.3)] active:scale-95"
+  >
+    <span class="relative z-10 flex items-center gap-2">
+      <i class="fas fa-calendar-alt text-[10px]"></i>
+      AGENDAR CITA
+    </span>
+    <div class="absolute inset-0 bg-linear-to-r from-amber-500 to-amber-600 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></div>
+  </a>
+</nav>

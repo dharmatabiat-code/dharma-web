@@ -31,8 +31,8 @@ export const seo = {
       "rejuvenecimiento",
       "tratamientos estéticos",
       "medicina antiaging",
-      "CDMX",
-      "Ciudad de México"
+      "Huamanga",
+      "Ayacucho"
     ],
     author: "Dharma Medicina Bioregenerativa",
     publisher: "Dharma",

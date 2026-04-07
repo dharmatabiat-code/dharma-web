@@ -1,0 +1,174 @@
+---
+import { company } from "../../data/company";
+
+interface Props {
+  companyData?: typeof company;
+}
+
+const { companyData = company } = Astro.props;
+---
+
+<section id="contacto" class="py-24 bg-slate-50 relative overflow-hidden" data-aos="fade-up">
+  <div class="absolute top-0 right-0 w-1/3 h-1/3 bg-amber-100/30 rounded-full blur-[120px] -z-10"></div>
+  <div class="absolute bottom-0 left-0 w-1/4 h-1/4 bg-amber-200/20 rounded-full blur-[100px] -z-10"></div>
+
+  <div class="max-w-350 mx-auto px-6 relative z-10">
+
+    <div class="text-center mb-15" data-aos="fade-up" data-aos-delay="200">
+        <span
+          class="inline-block bg-linear-to-r from-amber-700 to-amber-500 text-white px-5 py-2 rounded-full text-sm font-semibold tracking-wider uppercase mb-5"
+          ><i class="fas fa-paper-plane mr-2"></i> Contáctanos</span
+        >
+        <h2 class="text-4xl md:text-5xl font-serif text-slate-900 mb-4">
+          Comienza Tu Transformación
+        </h2>
+        <div
+          class="h-0.75 w-20 bg-linear-to-r from-amber-500 via-amber-300 to-amber-500 mx-auto"
+        >
+        </div>
+        <p class="text-gray-500 max-w-150 mx-auto mt-5 text-lg font-light">
+          Agenda tu consulta y descubre cómo la medicina
+          bioregenerativa puede transformar tu vida
+        </p>
+      </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+      <div class="lg:col-span-5 space-y-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="grid grid-cols-1 gap-4">
+
+          <div class="group flex items-start gap-5 p-6 rounded-3xl bg-white/50 border border-slate-100 hover:border-amber-200 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-md" data-aos="zoom-in" data-aos-delay="100">
+            <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 shrink-0 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-500">
+              <i class="fas fa-map-marker-alt text-xl"></i>
+            </div>
+            <div>
+              <h4 class="text-slate-900 font-bold text-lg mb-1">Ubicación</h4>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                {companyData.address}
+              </p>
+            </div>
+          </div>
+
+          <div class="group flex items-start gap-5 p-6 rounded-3xl bg-white/50 border border-slate-100 hover:border-amber-200 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-md" data-aos="zoom-in" data-aos-delay="150">
+            <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 shrink-0 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-500">
+              <i class="fas fa-phone-alt text-xl"></i>
+            </div>
+            <div>
+              <h4 class="text-slate-900 font-bold text-lg mb-1">Teléfono</h4>
+              <p class="text-slate-500 text-sm">{companyData.contact.phone}</p>
+              <span class="text-xs text-amber-600 font-semibold uppercase tracking-wider">Atención inmediata</span>
+            </div>
+          </div>
+
+          <div class="group flex items-start gap-5 p-6 rounded-3xl bg-white/50 border border-slate-100 hover:border-amber-200 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-md" data-aos="zoom-in" data-aos-delay="200">
+            <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 shrink-0 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-500">
+              <i class="fas fa-envelope text-xl"></i>
+            </div>
+            <div>
+              <h4 class="text-slate-900 font-bold text-lg mb-1">Correo Electrónico</h4>
+              <p class="text-slate-500 text-sm font-medium">{companyData.contact.email}</p>
+            </div>
+          </div>
+
+          <div class="group flex items-start gap-5 p-6 rounded-3xl bg-white/50 border border-slate-100 hover:border-amber-200 hover:bg-white transition-all duration-500 shadow-sm hover:shadow-md" data-aos="zoom-in" data-aos-delay="250">
+            <div class="w-14 h-14 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 shrink-0 group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-white transition-all duration-500">
+              <i class="fas fa-clock text-xl"></i>
+            </div>
+            <div>
+              <h4 class="text-slate-900 font-bold text-lg mb-1">Horario de Atención</h4>
+              <p class="text-slate-500 text-sm leading-relaxed">
+                Lun-Sáb: {companyData.hours.mondayToSaturday.open} - {companyData.hours.mondayToSaturday.close} | Dom: {companyData.hours.sunday.note}
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="lg:col-span-7" data-aos="fade-up" data-aos-delay="300">
+        <div class="bg-white p-8 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(212,165,42,0.1)] border border-slate-100 relative overflow-hidden">
+
+          <div class="absolute -top-24 -right-24 w-48 h-48 bg-amber-100/40 rounded-full blur-3xl"></div>
+
+          <form id="contact-form" class="space-y-5 relative z-10">
+            <input id="whatsapp-number" type="hidden" value={companyData.contact.phone} />
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div class="relative group/field">
+                <i class="fas fa-user absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within/field:text-amber-500 transition-colors"></i>
+                <input
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  class="w-full bg-slate-50 border border-slate-200 text-slate-800 py-4 px-12 rounded-2xl focus:outline-none focus:border-amber-400 focus:bg-white focus:ring-4 focus:ring-amber-400/5 transition-all"
+                  placeholder="Nombre completo"
+                  required
+                />
+              </div>
+              <div class="relative group/field">
+                <i class="fas fa-envelope absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within/field:text-amber-500 transition-colors"></i>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  class="w-full bg-slate-50 border border-slate-200 text-slate-800 py-4 px-12 rounded-2xl focus:outline-none focus:border-amber-400 focus:bg-white focus:ring-4 focus:ring-amber-400/5 transition-all"
+                  placeholder="Correo electrónico"
+                  required
+                />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div class="relative group/field">
+                <i class="fas fa-phone absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within/field:text-amber-500 transition-colors"></i>
+                <input
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  class="w-full bg-slate-50 border border-slate-200 text-slate-800 py-4 px-12 rounded-2xl focus:outline-none focus:border-amber-400 focus:bg-white focus:ring-4 focus:ring-amber-400/5 transition-all"
+                  placeholder="WhatsApp / Teléfono"
+                />
+              </div>
+              <div class="relative group/field">
+                <i class="fas fa-hand-holding-medical absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within/field:text-amber-500 transition-colors z-10"></i>
+                <select id="service" name="service" class="w-full bg-slate-50 border border-slate-200 text-slate-500 py-4 pl-12 pr-10 rounded-2xl appearance-none focus:outline-none focus:border-amber-400 focus:bg-white focus:ring-4 focus:ring-amber-400/5 transition-all cursor-pointer relative">
+                    <option value="">Selecciona un servicio</option>
+                    <option value="Medicina Regenerativa">Medicina Regenerativa</option>
+                    <option value="Epigenética">Epigenética</option>
+                    <option value="Ozonoterapia">Ozonoterapia</option>
+                    <option value="Medicina Ortomolecular">Medicina Ortomolecular</option>
+                  </select>
+                <i class="fas fa-chevron-down absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none text-xs"></i>
+              </div>
+            </div>
+
+            <div class="relative group/field">
+              <i class="fas fa-comment-alt absolute left-4 top-5 text-slate-400 group-focus-within/field:text-amber-500 transition-colors"></i>
+              <textarea
+                id="message"
+                name="message"
+                class="w-full bg-slate-50 border border-slate-200 text-slate-800 py-4 px-12 rounded-2xl focus:outline-none focus:border-amber-400 focus:bg-white focus:ring-4 focus:ring-amber-400/5 transition-all min-h-30"
+                placeholder="¿En qué podemos ayudarte?"
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              class="w-full bg-linear-to-r from-amber-600 to-amber-500 hover:from-amber-500 hover:to-amber-400 text-white font-bold py-5 rounded-2xl shadow-xl shadow-amber-500/20 transition-all duration-300 hover:-translate-y-1 active:scale-95 flex items-center justify-center gap-3 group"
+            >
+              <span>AGENDAR MI CONSULTA</span>
+              <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+            </button>
+
+            <p class="text-center text-[10px] text-slate-400 uppercase tracking-widest mt-4">
+              <i class="fas fa-shield-alt mr-1"></i> Tu información está protegida por nuestra política de privacidad
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  import "../../scripts/contact-form";
+</script>

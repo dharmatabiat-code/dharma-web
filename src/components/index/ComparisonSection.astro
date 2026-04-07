@@ -1,0 +1,86 @@
+---
+interface Props {
+  dharmaFeatures?: { title: string; description: string }[];
+  conventionalFeatures?: { title: string; description: string }[];
+}
+
+const {
+  dharmaFeatures = [
+    { title: "Análisis Epigenético Capilar", description: "Evaluamos cómo tu entorno y nutrición afectan tus genes antes de iniciar cualquier tratamiento." },
+    { title: "Terapias Autólogas Naturales", description: "Usamos tus propios recursos biológicos (Células Madre, PRP) potenciados con Ozonoterapia y Medicina Ortomolecular." },
+    { title: "Especialista Liderando tu Caso", description: "Atención directa por la Dra. Amalia Luque, con formación de élite en Rusia, EE.UU. y Europa." },
+  ],
+  conventionalFeatures = [
+    { title: "Diagnóstico Estándar", description: "Se enfoca en calmar síntomas visibles mediante fármacos sintéticos o procedimientos químicos." },
+    { title: "Soluciones Temporales", description: "Tratamientos genéricos que a menudo requieren medicación de por vida sin regenerar el daño de raíz." },
+    { title: "Atención Fragmentada", description: "Citas breves y rotación de médicos, lo que impide un seguimiento profundo de la salud familiar." },
+  ],
+} = Astro.props;
+---
+
+<section id="comparativa" class="py-25 bg-white" data-aos="fade-up">
+  <div class="max-w-350 mx-auto px-5">
+    <div class="text-center mb-15" data-aos="fade-up" data-aos-delay="200">
+       <span
+          class="inline-block bg-linear-to-r from-amber-700 to-amber-500 text-white px-5 py-2 rounded-full text-sm font-semibold tracking-wider uppercase mb-5"
+          ><i class="fas fa-balance-scale-right mr-2"></i> El Valor Dharma
+      </span>
+      <h2 class="text-4xl md:text-5xl font-serif text-slate-900 mb-4">La Diferencia es el Enfoque</h2>
+         <div
+          class="h-0.75 w-20 bg-linear-to-r from-amber-500 via-amber-300 to-amber-500 mx-auto"
+        >
+        </div>
+        <p class="text-gray-500 max-w-150 mx-auto mt-5 text-lg font-light">
+        Comparamos la medicina convencional de síntomas frente a nuestra metodología de restauración celular y epigenética.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-stretch" data-aos="fade-up" data-aos-delay="400">
+      <div class="relative p-1 rounded-4xl bg-linear-to-br from-amber-400 to-amber-600 shadow-2xl shadow-amber-900/10 transition-transform hover:-translate-y-1" data-aos="fade-up" data-aos-delay="200">
+        <div class="bg-white p-8 md:p-10 rounded-[calc(2.5rem-4px)] h-full">
+          <div class="flex items-center gap-4 mb-8">
+            <div class="w-12 h-12 bg-amber-100 rounded-xl flex items-center justify-center text-amber-600">
+              <i class="fas fa-dna text-xl"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-slate-900 uppercase tracking-tight">En Dharma</h3>
+          </div>
+          <ul class="space-y-6">
+            {dharmaFeatures.map((feature) => (
+              <li class="flex gap-4 items-start group">
+                <span class="mt-1 shrink-0 w-6 h-6 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center text-xs">
+                  <i class="fas fa-check"></i>
+                </span>
+                <div>
+                  <strong class="block text-slate-900 mb-1">{feature.title}</strong>
+                  <span class="text-slate-600 text-sm leading-relaxed">{feature.description}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <div class="p-8 md:p-10 rounded-4xl bg-slate-50 border border-slate-200 h-full flex flex-col justify-center" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex items-center gap-4 mb-8">
+          <div class="w-12 h-12 bg-slate-200 rounded-xl flex items-center justify-center text-slate-500">
+            <i class="fas fa-hospital-alt text-xl"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-slate-500 uppercase tracking-tight">Medicina Convencional</h3>
+        </div>
+        <ul class="space-y-6">
+          {conventionalFeatures.map((feature) => (
+            <li class="flex gap-4 items-start">
+              <span class="mt-1 shrink-0 w-6 h-6 rounded-full bg-slate-200 text-slate-500 flex items-center justify-center text-xs">
+                <i class="fas fa-times"></i>
+              </span>
+              <div>
+                <strong class="block text-slate-700 mb-1 text-sm uppercase tracking-wide font-bold">{feature.title}</strong>
+                <span class="text-slate-500 text-sm leading-relaxed">{feature.description}</span>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
