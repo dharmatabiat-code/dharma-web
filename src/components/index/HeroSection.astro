@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 interface Props {
   backgroundImage?: string;
   title?: string;
@@ -21,11 +22,15 @@ const {
   class="min-h-[calc(100vh-80px)] md:min-h-screen flex items-center justify-center relative bg-linear-to-br from-gray-50 via-white to-amber-50 overflow-hidden pt-20 md:pt-20"
 >
   <div class="absolute inset-0 z-0">
-    <img
+    <Image
       src={backgroundImage}
       alt="Laboratorio Bioregenerativo"
-      class="w-full h-full object-cover opacity-99 mix-blend-overlay scale-105 animate-slow-zoom"
-      loading="eager"
+      width={1920}
+      height={1080}
+      format="webp"
+      quality={80}
+      priority
+      class="w-full h-full object-cover opacity-90"
     />
   </div>
   <div

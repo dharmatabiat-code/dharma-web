@@ -2,15 +2,15 @@
 const whatsappForm = document.getElementById('contact-form');
 
 if (whatsappForm) {
-  const whatsappNumber = document.getElementById('whatsapp-number')?.value || '';
+  const whatsappNumber = (document.getElementById('whatsapp-number') as HTMLInputElement)?.value || '';
   whatsappForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const fullName = document.getElementById('firstName')?.value?.trim() || '';
-    const email = document.getElementById('email')?.value?.trim() || '';
-    const phone = document.getElementById('phone')?.value?.trim() || '';
-    const service = document.getElementById('service')?.value || '';
-    const message = document.getElementById('message')?.value?.trim() || '';
+    const fullName = (document.getElementById('firstName') as HTMLInputElement)?.value?.trim() || '';
+    const email = (document.getElementById('email') as HTMLInputElement)?.value?.trim() || '';
+    const phone = (document.getElementById('phone') as HTMLInputElement)?.value?.trim() || '';
+    const service = (document.getElementById('service') as HTMLInputElement)?.value || '';
+    const message = (document.getElementById('message') as HTMLInputElement)?.value?.trim() || '';
     const cleanNumber = whatsappNumber.replace(/\D/g, '');
 
     const parts = [

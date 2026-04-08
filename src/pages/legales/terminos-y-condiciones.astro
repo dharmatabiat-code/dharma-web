@@ -78,7 +78,7 @@ import { company } from "../../data/company";
             <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt text-amber-400 mr-2"></i>{company.address.street}, {company.address.colony}, {company.address.city}, {company.address.state}, {company.address.country}</p>
             <p class="text-gray-600 mb-2"><i class="fas fa-phone text-amber-400 mr-2"></i>{company.contact.phone}</p>
             <p class="text-gray-600 mb-2"><i class="fas fa-envelope text-amber-400 mr-2"></i>{company.contact.email}</p>
-            <p class="text-gray-600"><i class="fas fa-clock text-amber-400 mr-2"></i>{company.hours.monday} - {company.hours.saturday}</p>
+            <p class="text-gray-600"><i class="fas fa-clock text-amber-400 mr-2"></i>{company.hours.mondayToSaturday.open} - {company.hours.mondayToSaturday.close}</p>
           </div>
         </div>
 
