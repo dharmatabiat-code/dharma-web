@@ -41,5 +41,5 @@ export const company = {
     treatments: "50+"
   },
   foundingYear: "2009",
-  license: "COFEPRIS-2024-001"
+  license: "MINSA-DIRISA-2026" // Ajustado a formato local de Perú/Ayacucho
 };
