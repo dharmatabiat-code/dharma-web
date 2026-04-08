@@ -315,5 +315,5 @@ Layout principal que incluye:
 
 ---
 
-*Documentación actualizada para Dharma Web v0.0.1*
+*Documentación actualizada para Dharma Web v0.0.1 - Jhon QP*
 
