@@ -2,88 +2,119 @@
 
 Sitio web oficial de Dharma, clínica especializada en medicina bioregenerativa en Huamanga, Ayacucho, Perú.
 
-## 🚀 Descripción del Proyecto
+## Descripción del Proyecto
 
 Dharma es un sitio web de una clínica de medicina bioregenerativa que ofrece tratamientos avanzados con células madre, PRP (Plasma Rico en Plaquetas), y terapias regenerativas. El sitio incluye información sobre servicios, beneficios, testimonios de pacientes y formulario de contacto.
 
 ### Características
 
-- Diseño responsivo para dispositivos móviles y escritorio
-- Navegación con efecto de scroll
-- Menú móvil interactivo
-- SEO optimizado con meta tags y Schema.org
-- JSON-LD para datos estructurados de clínica médica
-- Paleta de colores dorada (gold/amber)
-- Tipografía: Plus Jakarta Sans
+- Diseño responsivo (mobile-first) con Tailwind CSS v4
+- Navegación desktop/mobile (NavDesktop/NavMobile)
+- Hero/About/Services/Director/Benefits/Comparison/Quote/Stats/Testimonials/Contact/Map sections
+- SEO completo (meta/OG/Twitter/Schema.org from src/data/seo.js)
+- JSON-LD structured data (Organization/MedicalClinic)
+- Custom gold theme (--color-gold-*) + animations (fadeInUp/shimmer/glow)
+- Font Awesome icons, Google Fonts (Segoe UI fallback in CSS)
 
-## 🛠️ Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
 - **Framework:** Astro 5.17.1
-- **Estilos:** Tailwind CSS 4.2.1
-- **Iconos:** Font Awesome 6.4.2
-- **Fuentes:** Google Fonts (Plus Jakarta Sans)
-- **Idiomas:** Español (principal), Inglés
+- **Estilos:** Tailwind CSS 4.2.1 (@tailwindcss/vite)
+- **Animaciones:** AOS 2.3.4
+- **Iconos:** Font Awesome
+- **Scripts:** TypeScript (header.ts/contact-form.ts/testimonial-slider.ts)
+- **Idiomas:** Español (es_PE), English alternate
 
 ## 📁 Estructura del Proyecto
 
 ```
 dharma-web/
-├── public/                          # Archivos estáticos
-│   ├── 1.jpeg                       # Imagen principal
-│   ├── fondo.jpg                    # Imagen de fondo
-│   ├── favicon.ico                  # Favicon
-│   ├── favicon.svg                  # Favicon SVG
-│   ├── ICONO-03.svg                 # Icono alternativo
-│   ├── ICONO.png                    # Icono PNG
-│   ├── ICONO.svg                    # Icono SVG
-│   ├── MEDIC.jpg                    # Imagen médica
-│   ├── robots.txt                   # Configuración para buscadores
-│   ├── sitemap.xml                 # Mapa del sitio
-│   └── logos/                       # Logotipos
-│       ├── 1.jpeg
-│       ├── 2.jpeg
+├── public/
+│   ├── 1.jpeg
+│   ├── fondo.jpg
+│   ├── ICONO.png
+│   ├── MEDIC.jpg
+│   ├── robots.txt
+│   ├── images/
+│   │   ├── beneficios/
+│   │   │   ├── 1.jpeg
+│   │   │   └── 2.png
+│   │   └── services/
+│   │       ├── antiaging.jpg
+│   │       ├── celulas-madre.jpg
+│   │       ├── esteticos.jpg
+│   │       ├── medicina-regenerativa.jpg
+│   │       ├── prp.jpg
+│   │       └── terapias-regeneracion.jpg
+│   └── logos/
+│       ├── 11.jpeg
+│       ├── 22.jpeg
+│       ├── icono.png
+│       ├── logo-corto.jpeg
 │       ├── logo-largo.jpeg
 │       └── logo-largo.png
 │
+
 ├── src/
 │   ├── assets/                      # Recursos assets
 │   │   ├── astro.svg                # Logo Astro
 │   │   └── background.svg           # Fondo SVG
 │   │
-│   ├── components/                  # Componentes reutilizables
-│   │   ├── Footer.astro             # Pie de página principal
-│   │   ├── Header.astro             # Encabezado con navegación
-│   │   ├── Welcome.astro            # Componente de bienvenida
-│   │   └── legales/                 # Componentes legales
+├── components/
+│   │   ├── Footer.astro
+│   │   ├── Header.astro
+│   │   ├── NavDesktop.astro
+│   │   ├── NavMobile.astro
+│   │   ├── footer/
+│   │   │   ├── FooterContact.astro
+│   │   │   ├── FooterLogo.astro
+│   │   │   ├── FooterMenu.astro
+│   │   │   └── FooterSocial.astro
+│   │   ├── index/
+│   │   │   ├── AboutSection.astro
+│   │   │   ├── BenefitsSection.astro
+│   │   │   ├── ComparisonSection.astro
+│   │   │   ├── ContactSection.astro
+│   │   │   ├── HeroSection.astro
+│   │   │   ├── MapSection.astro
+│   │   │   ├── MedicalDirectorSection.astro
+│   │   │   ├── QuoteSection.astro
+│   │   │   ├── ServicesSection.astro
+│   │   │   ├── StatisticsSection.astro
+│   │   │   └── TestimonialsSection.astro
+│   │   └── legales/
 │   │       ├── FooterLegales.astro
 │   │       └── HeaderLegales.astro
 │   │
+
 │   ├── data/                        # Datos configurables
 │   │   ├── company.js               # Datos de la empresa
 │   │   ├── seo.js                   # Configuración SEO
 │   │   ├── services.js              # Servicios ofrecidos
 │   │   └── testimonials.js          # Testimonios y FAQ
 │   │
-│   ├── layouts/                     # Layouts base
-│   │   ├── Layout.astro             # Layout principal
-│   │   └── LayoutLegales.astro      # Layout para páginas legales
-│   │
-│   ├── pages/                       # Páginas del sitio
-│   │   ├── index.astro              # Página principal
-│   │   └── legales/                 # Páginas legales
+├── layouts/
+│   │   ├── Layout.astro
+│   │   └── LayoutLegales.astro
+│   ├── pages/
+│   │   ├── index.astro
+│   │   └── legales/
 │   │       ├── politica-de-privacidad.astro
 │   │       └── terminos-y-condiciones.astro
-│   │
-│   └── styles/                      # Estilos globales
-│       └── global.css               # Variables CSS y estilos globales
-│
-├── astro.config.mjs                 # Configuración de Astro
-├── package.json                     # Dependencias del proyecto
-├── tsconfig.json                    # Configuración de TypeScript
-└── README.md                        # Este archivo
+│   ├── scripts/
+│   │   ├── contact-form.ts
+│   │   ├── header.ts
+│   │   └── testimonial-slider.ts
+│   └── styles/
+│       └── global.css
+├── astro.config.mjs
+├── package.json
+├── tsconfig.json
+└── README.md
 ```
 
-## ⚙️ Configuración de Datos
+
+## Configuración de Datos
 
 ### Datos de la Empresa (`src/data/company.js`)
 
@@ -93,21 +124,39 @@ Contiene la información de contacto, dirección y estadísticas de la clínica:
 export const company = {
   name: "Dharma",
   tagline: "Medicina Bioregenerativa de Vanguardia",
+  description: "Líderes en medicina bioregenerativa. Tratamientos con células madre, PRP y terapias regenerativas para restaurar tu salud desde la raíz.",
   address: {
     street: "Av. Principal 123",
     colony: "San Juan Baustista",
     city: "Huamanga",
     state: "Ayacucho",
     zip: "00000",
-    country: "Perú"
+    country: "Perú",
+    mapLink: "https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d971.2106238429621!2d-74.204524!3d-13.172329!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTPCsDEwJzIwLjIiUyA3NMKwMTInMTYuOSJX!5e0!3m2!1ses-419!2spe!4v1775487644312!5m2!1ses-419!2spe"
   },
   contact: {
     phone: "+51 997 307 782",
     email: "info@dharma.co",
-    whatsapp: "+51 997 307 782"
+    whatsapp: "+51 997 307 782",
+    linkWhatsapp: "https://wa.me/51997307782"
   },
-  hours: { /* Horarios de atención */ },
-  social: { /* Redes sociales */ },
+  hours: {
+    mondayToSaturday: {
+      open: "09:00",
+      close: "20:00"
+    },
+    sunday: {
+      note: "Solo citas programadas"
+    }
+  },
+  social: {
+    facebook: "https://facebook.com/dharma",
+    instagram: "https://instagram.com/dharma",
+    twitter: "https://twitter.com/dharma",
+    tiktok: "https://tiktok.com/@dharma",
+    youtube: "https://youtube.com/dharma",
+    linkedin: "https://linkedin.com/company/dharma"
+  },
   stats: {
     patients: "5000+",
     years: "15+",
@@ -117,6 +166,7 @@ export const company = {
   foundingYear: "2009",
   license: "COFEPRIS-2024-001"
 };
+
 ```
 
 ### Configuración SEO (`src/data/seo.js`)
@@ -142,35 +192,36 @@ Lista de servicios ofrecidos:
 ## 🎨 Personalización
 
 ### Colores
+Paleta de colores dorada definida en `src/styles/global.css` (Tailwind @theme):
 
-El proyecto utiliza una paleta de colores dorada definida en `src/layouts/Layout.astro`:
 
-```css
-:root {
+@theme {
   /* Gold Color Palette */
-  --gold-50: #fdfaf3;
-  --gold-100: #f9f0d9;
-  --gold-200: #f2e0a8;
-  --gold-300: #e9c96b;
-  --gold-400: #dfb33d;
-  --gold-500: #d4a52a;
-  --gold-600: #b8922a;
-  --gold-700: #947a32;
-  --gold-800: #756336;
-  --gold-900: #5c4d2e;
+  --color-gold-50: #fdfaf3;
+  --color-gold-100: #f9f0d9;
+  --color-gold-200: #f2e0a8;
+  --color-gold-300: #e9c96b;
+  --color-gold-400: #dfb33d;
+  --color-gold-500: #d4a52a;
+  --color-gold-600: #b8922a;
+  --color-gold-700: #947a32;
+  --color-gold-800: #756336;
+  --color-gold-900: #5c4d2e;
   
   /* Primary Gold */
-  --primary-gold: #d4a52a;
-  --primary-gold-light: #e9c96b;
-  --primary-gold-dark: #b8922a;
+  --color-primary-gold: #d4a52a;
+  --color-primary-gold-light: #e9c96b;
+  --color-primary-gold-dark: #b8922a;
 }
-```
 
 ### Imágenes
 
-Las imágenes se encuentran en `/public/logos/`:
-- `logo-largo.png` - Logotipo principal (usado en Header y Footer)
-- `logo-largo.jpeg` - Versión JPEG del logotipo
+Imágenes principales en `public/`:
+- Hero/services: `1.jpeg`, `fondo.jpg`, `MEDIC.jpg`, `ICONO.png`
+- Services (match src/data/services.js): `public/images/services/antiaging.jpg`, `celulas-madre.jpg`, `esteticos.jpg`, `medicina-regenerativa.jpg`, `prp.jpg`, `terapias-regeneracion.jpg`
+- Beneficios: `public/images/beneficios/1.jpeg`, `2.png`
+- Logos: `public/logos/logo-largo.png` (main/SEO), `logo-largo.jpeg`, `logo-corto.jpeg`, `icono.png`, `11.jpeg`, `22.jpeg`
+
 
 ## 📋 Comandos Disponibles
 

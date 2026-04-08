@@ -1,1 +1,0 @@
-# TODO: Fix Tailwind CSS Canonical Class Warnings in index.astro\n\n## Steps:\n- [x] Create TODO.md (done)\n- [x] Execute 4 parallel edit_file replacements for Tailwind classes\n- [x] Verify file changes and confirm warnings resolved (read_file or user check)\n- [ ] Run `npm run dev` to test dev server and Tailwind intellisense\n- [x] Attempt completion
