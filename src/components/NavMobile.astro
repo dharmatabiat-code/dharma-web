@@ -38,11 +38,11 @@ const { navItems, socialLinks } = Astro.props;
           <i class="fas fa-chevron-right text-xs opacity-20 group-hover:opacity-100 group-hover:translate-x-2 transition-all" />
         </a>
       ))}
-      <div class="mt-12 pt-10 border-t border-slate-100 space-y-10">
+      <div class="mt-12 pt-10 border-t justify-center border-slate-100 space-y-10">
         <div class="space-y-4">
-          <div class="flex items-center gap-2">
-            <p class="text-slate-400 text-[10px] tracking-[0.2em] uppercase font-bold">
-              Ayacucho, Perú
+          <div class="space-y-4 justify-center">
+           <p class="text-slate-400 text-[10px] tracking-[0.2em] uppercase font-bold text-center">
+              Huamanga - Ayacucho, Perú
             </p>
           </div>
           {company.contact.linkWhatsapp && (
@@ -55,9 +55,9 @@ const { navItems, socialLinks } = Astro.props;
           )}
         </div>
 
-        <div class="space-y-4">
-          <p class="text-slate-400 text-[10px] tracking-[0.2em] uppercase font-bold">
-            Síguenos en redes
+        <div class="space-y-4 justify-center">
+           <p class="text-slate-400 text-[10px] tracking-[0.2em] uppercase font-bold text-center">
+            Síguenos en redes</p>
           </p>
           <div class="flex flex-wrap items-center gap-3">
             {socialLinks.filter(social => social.url).map((social) => (

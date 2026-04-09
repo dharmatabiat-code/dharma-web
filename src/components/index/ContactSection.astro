@@ -44,7 +44,7 @@ const { companyData = company } = Astro.props;
             <div>
               <h4 class="text-slate-900 font-bold text-lg mb-1">Ubicación</h4>
               <p class="text-slate-500 text-sm leading-relaxed">
-                {companyData.address}
+                {companyData.address. street}, {companyData.address.city}, {companyData.address.state}
               </p>
             </div>
           </div>
