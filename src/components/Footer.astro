@@ -18,6 +18,7 @@ interface Props {
   whatsappUrl?: string;
   privacyUrl?: string;
   termsUrl?: string;
+  avisoLegalUrl?: string;
 }
 
 const {
@@ -46,6 +47,7 @@ const {
   whatsappUrl = company.contact?.linkWhatsapp || "",
   privacyUrl = "/legales/politica-de-privacidad",
   termsUrl = "/legales/terminos-y-condiciones",
+  avisoLegalUrl = "/legales/aviso-legal",
 } = Astro.props;
 ---
 
@@ -74,6 +76,7 @@ const {
       <nav class="flex items-center gap-8" role="navigation" aria-label="Enlaces legales">
         <a href={privacyUrl} class="text-slate-400 text-[10px] uppercase font-bold hover:text-amber-600 transition-colors tracking-[0.2em]">Privacidad</a>
         <a href={termsUrl} class="text-slate-400 text-[10px] uppercase font-bold hover:text-amber-600 transition-colors tracking-[0.2em]">Términos</a>
+        <a href={avisoLegalUrl} class="text-slate-400 text-[10px] uppercase font-bold hover:text-amber-600 transition-colors tracking-[0.2em]">Aviso Legal</a>
       </nav>
     </div>
   </div>

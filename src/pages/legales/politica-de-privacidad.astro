@@ -38,13 +38,13 @@ const sections = [
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
         
         <aside class="hidden lg:block lg:col-span-4 sticky top-32 h-fit">
-          <div class="border-l-2 border-amber-100 pl-6 space-y-6">
-            <p class="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold mb-8">Navegación</p>
+          <div class="border-l-2 border-amber-100 pl-6 space-y-5">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold mb-6">Contenido</p>
             {sections.map((sec) => (
               <a 
                 href={`#${sec.id}`} 
-                class="block text-sm text-slate-500 hover:text-amber-600 transition-all hover:translate-x-2 font-medium"
-              >
+                class="block text-sm text-slate-500 hover:text-amber-600 transition-all hover:translate-x-2 font-medium">
+              
                 {sec.title}
               </a>
             ))}
@@ -52,10 +52,11 @@ const sections = [
         </aside>
 
         <div class="lg:col-span-8">
-           <nav class="flex items-center gap-2 text-sm text-gray-500 mb-6 md:mb-8">
-          <a href="/" class="hover:text-amber-500 transition-colors">Inicio</a>
-          <span class="text-gray-300">/</span>Politica De Privacidad</span>
-        </nav>
+             <nav class="flex items-center gap-2 text-sm text-gray-500 mb-6 md:mb-8">
+            <a href="/" class="hover:text-amber-500 transition-colors">Inicio</a>
+            <span class="text-gray-300">/</span>
+            <span class="text-gray-700 font-medium">Política de Privacidad</span>
+          </nav>
           
           <article id="introduccion" class="mb-20 scroll-mt-32" data-aos="fade-up">
             <div class="flex items-center gap-4 mb-6">
@@ -63,6 +64,7 @@ const sections = [
                 <span class="text-amber-500 font-serif opacity-30 text-4xl">01</span> 
                 Introducción
              </h2>
+             
             </div>
             <div class="bg-slate-50/50 border-l-4 border-amber-500 p-8 rounded-r-3xl mb-6">
                 <p class="text-slate-600 italic leading-relaxed">

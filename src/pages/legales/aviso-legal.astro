@@ -1,0 +1,272 @@
+---
+import LayoutLegales from "../../layouts/LayoutLegales.astro";
+import { company } from "../../data/company";
+
+const sections = [
+  { id: "titular", title: "1. Titularidad del Portal", icon: "fa-crown" },
+  { id: "objeto", title: "2. Propósito Institucional", icon: "fa-gem" },
+  { id: "propiedad", title: "3. Propiedad Intelectual", icon: "fa-copyright" },
+  { id: "condiciones", title: "4. Normas de Uso", icon: "fa-user-check" },
+  { id: "garantias", title: "5. Limitación de Garantías", icon: "fa-shield-alt" },
+  { id: "responsabilidad", title: "6. Responsabilidad Civil", icon: "fa-balance-scale" },
+  { id: "enlaces", title: "7. Política de Enlaces", icon: "fa-link" },
+  { id: "legislacion", title: "8. Marco Jurídico", icon: "fa-gavel" },
+];
+
+const lastUpdated = "10/04/2026";
+const location = "Ayacucho, Perú";
+
+const contentSections = [
+  {
+    id: "titular",
+    title: "1. Titularidad del Portal",
+    content: `Dharma pone a disposición del público un espacio digital destinado a la divulgación de avances en medicina biorregenerativa, ozonoterapia y estética avanzada, facilitando un canal de comunicación directo entre el paciente y nuestro equipo de especialistas.`,
+  },
+  {
+    id: "objeto",
+    title: "2. Propósito Institucional",
+    content: `El público tendrá acceso a información detallada sobre nuestros servicios, equipo médico, investigaciones y eventos relacionados con la salud y el bienestar. Este portal no solo busca informar, sino también educar y empoderar a nuestros pacientes para que tomen decisiones informadas sobre su salud.`,
+  },
+  {
+    id: "propiedad",
+    title: "3. Propiedad Intelectual",
+    content: `Todos los derechos de propiedad industrial e intelectual del sitio web, incluyendo su código fuente (Astro/Vite), diseño visual, interfaces, logotipos y contenidos textuales, pertenecen exclusivamente a Dharma. La reproducción, distribución o transformación de cualquier contenido de esta web sin la autorización expresa constituye una infracción legal.`,
+  },
+  {
+    id: "condiciones",
+    title: "4. Normas de Uso",
+    content: `El usuario se compromete a hacer un uso diligente del sitio web y de los servicios accesibles desde el mismo, con total sujeción a la Ley y a las buenas costumbres. No emplear los contenidos para actividades ilícitas o contrarias a la buena fe. No provocar daños en los sistemas físicos y lógicos de Dharma o de sus proveedores. Queda prohibido el uso de la web para el envío de publicidad no solicitada (Spam).`,
+  },
+  {
+    id: "garantias",
+    title: "5. Limitación de Garantías",
+    content: `Dharma no garantiza la ausencia de interrupciones o errores en el acceso al sitio web, aunque se compromete a realizar las actualizaciones necesarias para evitar estos inconvenientes. La información compartida en esta web es de carácter orientativo. No constituye, en ningún caso, una consulta médica ni sustituye el diagnóstico presencial realizado por un médico colegiado en nuestras instalaciones.`,
+  },
+  {
+    id: "responsabilidad",
+    title: "6. Responsabilidad Civil",
+    content: `Dharma no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.`,
+  },
+  {
+    id: "enlaces",
+    title: "7. Política de Enlaces",
+    content: `En el caso de que en la web se dispusiesen enlaces o hipervínculos hacía otros sitios de Internet, Dharma no ejercerá ningún tipo de control sobre dichos sitios y contenidos. En ningún caso asumiremos responsabilidad alguna por los contenidos de algún enlace perteneciente a un sitio web ajeno.`,
+  },
+  {
+    id: "legislacion",
+    title: "8. Marco Jurídico",
+    content: `El presente Aviso Legal se rige íntegramente por la Assoc.ión Peruana de Medicina Biorregenerativa. Para la resolución de cualquier conflicto derivado de la interpretación de estas condiciones, las partes acuerdan someterse a la jurisdicción de los Juzgados y Tribunales de la ciudad de Ayacucho, Huamanga.`,
+  },
+];
+
+---
+
+<LayoutLegales
+  title="Aviso Legal - Dharma"
+  description="Información legal corporativa de Dharma, centro de medicina biorregenerativa y estética."
+>
+  <section class="relative bg-linear-to-br from-slate-50 via-white to-amber-50 py-24 pt-32 overflow-hidden">
+    <div class="absolute inset-0 opacity-40 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-5%] w-96 h-96 bg-amber-200 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-64 h-64 bg-slate-200 rounded-full blur-3xl opacity-50"></div>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-5 text-center">
+      <h1 class="text-5xl md:text-6xl font-serif text-slate-900 mb-6" data-aos="fade-up">
+        Aviso <span class="text-amber-500 italic">Legal</span>
+      </h1>
+      <p class="text-slate-400 max-w-2xl mx-auto font-light leading-relaxed text-lg" data-aos="fade-up" data-aos-delay="200">
+        Transparencia y rigor jurídico para nuestra comunidad de pacientes y usuarios.
+      </p>
+      <p class="text-slate-400 max-w-2xl mx-auto font-medium tracking-widest uppercase text-[10px] pt-10" data-aos="fade-up" data-aos-delay="200">
+        Última actualización: {lastUpdated} - {location}
+      </p>
+    </div>
+  </section>
+
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        
+        <aside class="hidden lg:block lg:col-span-4 sticky top-32 h-fit">
+          <div class="border-l-2 border-amber-100 pl-6 space-y-5">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold mb-6">Contenido</p>
+            {sections.map((sec) => (
+              <a href={`#${sec.id}`} class="block text-sm text-slate-500 hover:text-amber-600 transition-all hover:translate-x-2 font-medium">
+                {sec.title}
+              </a>
+            ))}
+          </div>
+        </aside>
+
+        <div class="lg:col-span-8">
+         <nav class="flex items-center gap-2 text-sm text-gray-500 mb-6 md:mb-8">
+            <a href="/" class="hover:text-amber-500 transition-colors">Inicio</a>
+            <span class="text-gray-300">/</span>
+            <span class="text-gray-700 font-medium">Aviso Legal</span>
+          </nav>
+
+          <article id="titular" class="mb-24 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+            <span class="text-amber-500 font-serif opacity-30 text-4xl">01</span> 
+                Titularidad del Portal
+            </h2>
+            <div class="p-10 bg-slate-50 rounded-[3rem] border border-slate-100 relative overflow-hidden text-sm">
+                <p class="text-slate-900 font-bold text-xl mb-6 tracking-tight">Dharma — Medicina Biorregenerativa</p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-600">
+                    <div class="space-y-4">
+                        <p class="flex flex-col gap-1">
+                            <span class="text-[10px] uppercase text-amber-600 font-bold">Identidad</span>
+                            <span class="font-medium text-slate-800">Dharma S.A.C. (En trámite)</span>
+                        </p>
+                        <p class="flex flex-col gap-1">
+                            <span class="text-[10px] uppercase text-amber-600 font-bold">Ubicación</span>
+                            <span class="font-medium text-slate-800">Ayacucho, Huamanga, Perú</span>
+                        </p>
+                    </div>
+                    <div class="space-y-4">
+                        <p class="flex flex-col gap-1">
+                            <span class="text-[10px] uppercase text-amber-600 font-bold">Contacto</span>
+                            <span class="font-medium text-slate-800">{company.contact.email}</span>
+                        </p>
+                        <p class="flex flex-col gap-1">
+                            <span class="text-[10px] uppercase text-amber-600 font-bold">Línea Directa</span>
+                            <span class="font-medium text-slate-800">{company.contact.phone}</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+          </article>
+
+          <article id="objeto" class="mb-24 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+            <span class="text-amber-500 font-serif opacity-30 text-4xl">02</span> 
+                 Propósito Institucional
+            </h2>
+            <p class="text-slate-600 leading-relaxed text-lg font-light">
+              Dharma pone a disposición del público un espacio digital destinado a la divulgación de avances en <strong>medicina biorregenerativa, ozonoterapia y estética avanzada</strong>, facilitando un canal de comunicación directo entre el paciente y nuestro equipo de especialistas.
+            </p>
+          </article>
+
+          <article id="propiedad" class="mb-24 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+            <span class="text-amber-500 font-serif opacity-30 text-4xl">03</span> 
+                 Propiedad Intelectual
+            </h2>
+            <div class="space-y-6 text-slate-600 leading-relaxed">
+                <p>
+                    Todos los derechos de propiedad industrial e intelectual del sitio web, incluyendo su código fuente (Astro/Vite), diseño visual, interfaces, logotipos y contenidos textuales, pertenecen exclusivamente a <strong class="text-slate-950 font-bold">Dharma</strong>.
+                </p>
+                <div class="p-6 bg-amber-500/5 border-l-2 border-amber-500 rounded-r-2xl text-sm italic">
+                    "La reproducción, distribución o transformación de cualquier contenido de esta web sin la autorización expresa constituye una infracción legal."
+                </div>
+            </div>
+          </article>
+
+          <article id="condiciones" class="mb-24 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+            <span class="text-amber-500 font-serif opacity-30 text-4xl">04</span> 
+                 Normas de Uso
+            </h2>
+            <p class="text-slate-600 mb-6">El usuario se compromete a hacer un uso diligente del sitio web y de los servicios accesibles desde el mismo, con total sujeción a la Ley y a las buenas costumbres:</p>
+            <ul class="space-y-4">
+                {[
+                  "No emplear los contenidos para actividades ilícitas o contrarias a la buena fe.",
+                  "No provocar daños en los sistemas físicos y lógicos de Dharma o de sus proveedores.",
+                  "Queda prohibido el uso de la web para el envío de publicidad no solicitada (Spam)."
+                ].map(item => (
+                    <li class="flex items-start gap-3 text-slate-600 text-sm italic">
+                        <i class="fas fa-check text-amber-500 mt-1"></i>
+                        <span>{item}</span>
+                    </li>
+                ))}
+            </ul>
+          </article>
+
+          <article id="garantias" class="mb-24 scroll-mt-32" data-aos="fade-up">
+    
+            <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+            <span class="text-amber-500 font-serif opacity-30 text-4xl">05</span> 
+               Limitación de Garantías
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6">
+              Dharma no garantiza la ausencia de interrupciones o errores en el acceso al sitio web, aunque se compromete a realizar las actualizaciones necesarias para evitar estos inconvenientes.
+            </p>
+
+            <div class="p-8 bg-slate-950 rounded-4xl text-slate-400 border border-amber-500/30">
+                <p class="text-xs uppercase tracking-widest text-amber-500 font-bold mb-4">Nota Médica Importante</p>
+                <p class="text-sm leading-relaxed">
+                    La información compartida en esta web es de carácter orientativo. <strong>No constituye, en ningún caso, una consulta médica</strong> ni sustituye el diagnóstico presencial realizado por un médico colegiado en nuestras instalaciones.
+                </p>
+            </div>
+          </article>
+
+          <article id="responsabilidad" class="mb-24 scroll-mt-32" data-aos="fade-up">
+             <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+            <span class="text-amber-500 font-serif opacity-30 text-4xl">06</span> 
+                 Responsabilidad Civil
+            </h2>
+            <p class="text-slate-600 leading-relaxed">
+                Dharma no se hace responsable, en ningún caso, de los daños y perjuicios de cualquier naturaleza que pudieran ocasionar, a título enunciativo: errores u omisiones en los contenidos, falta de disponibilidad del portal o la transmisión de virus o programas maliciosos, a pesar de haber adoptado todas las medidas tecnológicas necesarias para evitarlo.
+            </p>
+          </article>
+
+          <article id="enlaces" class="mb-24 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+            <span class="text-amber-500 font-serif opacity-30 text-4xl">07</span> 
+               Política de Enlaces
+            </h2>
+            <p class="text-slate-600 leading-relaxed text-sm">
+                En el caso de que en la web se dispusiesen enlaces o hipervínculos hacía otros sitios de Internet, Dharma no ejercerá ningún tipo de control sobre dichos sitios y contenidos. En ningún caso asumiremos responsabilidad alguna por los contenidos de algún enlace perteneciente a un sitio web ajeno.
+            </p>
+          </article>
+
+          <article id="legislacion" class="mb-24 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+            <span class="text-amber-500 font-serif opacity-30 text-4xl">08</span> 
+               Marco Jurídico
+            </h2>
+            <p class="text-slate-600 leading-relaxed">
+                El presente Aviso Legal se rige íntegramente por la legislación peruana. Para la resolución de cualquier conflicto derivado de la interpretación de estas condiciones, las partes acuerdan someterse a la jurisdicción de los Juzgados y Tribunales de la ciudad de <strong class="text-slate-950">Ayacucho, Huamanga</strong>.
+            </p>
+          </article>
+
+          <article id="contacto" class="scroll-mt-32" data-aos="fade-up">
+            <div class="bg-slate-950 rounded-[4rem] p-12 md:p-20 relative overflow-hidden shadow-2xl">
+                <div class="absolute top-0 right-0 w-1000 h-100 bg-amber-500/5 rounded-full blur-[100px]"></div>
+                
+                <div class="relative z-10 text-center md:text-left">
+                    <h2 class="text-4xl md:text-5xl font-serif text-white mb-8">Consultas de <span class="text-amber-500">Privacidad</span></h2>
+                    <p class="text-slate-400 mb-12 text-xl font-light leading-relaxed">
+                        Para cualquier solicitud relacionada con la gestión de su información personal o derechos de marca.
+                    </p>
+                    
+                    <div class="flex flex-col md:flex-row gap-6">
+                        <a href={`mailto:${company.contact.email}`} class="px-10 py-5 rounded-full bg-amber-600 text-slate-950 font-bold hover:bg-amber-500 transition-all text-sm tracking-widest uppercase text-center">
+                            Contacto Legal
+                        </a>
+                        <a href="/" class="px-10 py-5 rounded-full border border-slate-800 text-white font-bold hover:bg-white/5 transition-all text-sm tracking-widest uppercase text-center">
+                            Volver al Portal
+                        </a>
+                    </div>
+                </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </div>
+  </section>
+</LayoutLegales>
+
+<style>
+  html { scroll-behavior: smooth; }
+  aside a { position: relative; transition: all 0.3s ease; }
+  aside a::after {
+    content: ''; position: absolute; left: -26px; top: 50%;
+    width: 0; height: 1px; background-color: #d97706;
+    transition: width 0.3s ease;
+  }
+  aside a:hover::after { width: 20px; }
+  aside a:hover { color: #d97706 !important; }
+</style>
