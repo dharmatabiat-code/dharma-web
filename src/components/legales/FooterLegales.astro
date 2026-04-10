@@ -1,105 +1,126 @@
 ---
 import { company } from "../../data/company";
-const currentYear = new Date().getFullYear();
+import FooterLogo from "./footer/FooterLogo.astro";
+import FooterMenu from "./footer/FooterMenu.astro";
+import FooterContact from "./footer/FooterContact.astro";
+import FooterSocial from "./footer/FooterSocial.astro";
+
+interface Props {
+  logoSrc?: string;
+  logoAlt?: string;
+  title?: string;
+  description?: string;
+  menuItems?: { label: string; href: string }[];
+  address?: { street: string; city: string };
+  phone?: string;
+  email?: string;
+  socialLinks?: { icon: string; url: string }[];
+  whatsappUrl?: string;
+  privacyUrl?: string;
+  termsUrl?: string;
+}
+
+const {
+  logoSrc = "/logos/logo-largo.png",
+  logoAlt = "Logo DHARMA CLINIC",
+  title = `${company.name} - ${company.tagline}`,
+  description = "Restaurando tu vitalidad desde la raíz con ciencia epigenética y calidez humana.",
+  menuItems = [
+    { label: "Inicio", href: "/" },
+    { label: "Politica de privacidad", href: "/legales/politica-de-privacidad"},
+    { label: "Términos y condiciones", href: "/legales/terminos-y-condiciones" },
+  ],
+  address = company.address || { street: "Dirección no disponible", city: "Ayacucho" },
+  phone = company.contact?.phone || "Teléfono no disponible",
+  email = company.contact?.email || "Email no disponible",
+  socialLinks = [
+    { icon: "facebook-f", url: company.social?.facebook || "" },
+    { icon: "twitter", url: company.social?.twitter || "" },
+    { icon: "instagram", url: company.social?.instagram || "" },
+    { icon: "tiktok", url: company.social?.tiktok || "" },
+    { icon: "youtube", url: company.social?.youtube || "" },
+    { icon: "linkedin-in", url: company.social?.linkedin || "" },
+  ],
+  whatsappUrl = company.contact?.linkWhatsapp || "",
+  privacyUrl = "/legales/politica-de-privacidad",
+  termsUrl = "/legales/terminos-y-condiciones",
+} = Astro.props;
 ---
 
-<footer class="bg-gray-50 border-t border-gray-200 py-8 md:py-12">
-  <div class="max-w-7xl mx-auto px-4">
-    
-    <!-- Main Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+<footer class="bg-white pt-20 md:pt-28 pb-10 border-t border-slate-100 relative overflow-hidden" data-aos="fade-up">
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-linear-to-r from-transparent via-amber-200 to-transparent"></div>
+
+  <div class="max-w-350 mx-auto px-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-4 lg:mb-24">
+      <FooterLogo logoSrc={logoSrc} logoAlt={logoAlt} title={title} description={description} />
+      <FooterMenu menuItems={menuItems} />
+      <FooterContact address={address} phone={phone} email={email} />
+      <FooterSocial socialLinks={socialLinks} whatsappUrl={whatsappUrl} />
+    </div>
+
+    <div class="pt-10 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-8">
+      <div class="flex flex-col md:flex-row items-center gap-4 md:gap-8 text-center md:text-left">
+        <p class="text-slate-400 text-[10px] uppercase tracking-widest font-medium">
+          &copy; {new Date().getFullYear()} <span class="text-slate-900">Dharma Clinic</span>
+        </p>
+        <span class="hidden md:block w-px h-3 bg-slate-200"></span>
+        <p class="text-slate-400 text-[10px] uppercase tracking-[0.2em]">
+          Diseñado y Desarrollado por Jhon QP
+        </p>
+      </div>
       
-      <!-- Column 1: Logo & Info -->
-      <div class="flex flex-col items-center md:items-start gap-4">
-        <div class="flex items-center gap-3">
-          <div class="bg-white p-3 rounded-3xl inline-block">
-            <img src="/logos/logo-largo.png" alt="Logo Dharma" class="h-20 object-contain">
-          </div>
-        </div>
-        <p class="text-sm text-gray-600 text-center md:text-left">
-          {company.name} - {company.tagline}
-        </p>
-        <p class="text-xs text-gray-500 text-center md:text-left">
-          {company.address.city}, {company.address.state}, {company.address.country}
-        </p>
-      </div>
-
-      <!-- Column 2: Quick Links -->
-      <div class="flex flex-col items-center md:items-start gap-4">
-        <h3 class="text-sm font-bold text-gray-700 uppercase tracking-wide">Enlaces</h3>
-        <div class="flex flex-col gap-2 text-center md:text-left">
-          <a href="/" class="text-sm text-gray-500 hover:text-amber-500 transition-colors">
-            Inicio
-          </a>
-          <a href="/#servicios" class="text-sm text-gray-500 hover:text-amber-500 transition-colors">
-            Servicios
-          </a>
-          <a href="/#beneficios" class="text-sm text-gray-500 hover:text-amber-500 transition-colors">
-            Beneficios
-          </a>
-          <a href="/#contacto" class="text-sm text-gray-500 hover:text-amber-500 transition-colors">
-            Contacto
-          </a>
-        </div>
-      </div>
-
-      <!-- Column 3: Legal -->
-      <div class="flex flex-col items-center md:items-start gap-4">
-        <h3 class="text-sm font-bold text-gray-700 uppercase tracking-wide">Legal</h3>
-        <div class="flex flex-col gap-2 text-center md:text-left">
-          <a href="/legales/terminos-y-condiciones" class="text-sm text-gray-500 hover:text-amber-500 transition-colors font-medium">
-            Términos y Condiciones
-          </a>
-          <a href="/legales/politica-de-privacidad" class="text-sm text-gray-500 hover:text-amber-500 transition-colors font-medium">
-            Política de Privacidad
-          </a>
-        </div>
-      </div>
-
+      <nav class="flex items-center gap-8" role="navigation" aria-label="Enlaces legales">
+        <a href={privacyUrl} class="text-slate-400 text-[10px] uppercase font-bold hover:text-amber-600 transition-colors tracking-[0.2em]">Privacidad</a>
+        <a href={termsUrl} class="text-slate-400 text-[10px] uppercase font-bold hover:text-amber-600 transition-colors tracking-[0.2em]">Términos</a>
+      </nav>
     </div>
-
-    <!-- Contact Info -->
-    <div class="flex flex-wrap justify-center items-center gap-3 md:gap-6 py-6 border-t border-b border-gray-200 mb-6">
-      <a 
-        href={`tel:${company.contact.phone}`} 
-        class="flex items-center gap-2 text-xs md:text-sm text-gray-600 hover:text-amber-500 transition-colors"
-      >
-        <i class="fas fa-phone w-4 h-4"></i>
-        <span class="hidden sm:inline">{company.contact.phone}</span>
-        <span class="sm:hidden">Llamar</span>
-      </a>
-      <span class="hidden md:inline text-gray-300">|</span>
-      <a 
-        href={`https://wa.me/${company.contact.whatsapp.replace(/\D/g,'')}`}
-        target="_blank" 
-        rel="noopener noreferrer"
-        class="flex items-center gap-2 text-xs md:text-sm text-gray-600 hover:text-amber-500 transition-colors"
-      >
-        <i class="fab fa-whatsapp text-lg"></i>
-        <span>WhatsApp</span>
-      </a>
-      <span class="hidden md:inline text-gray-300">|</span>
-      <a 
-        href={`mailto:${company.contact.email}`} 
-        class="flex items-center gap-2 text-xs md:text-sm text-gray-600 hover:text-amber-500 transition-colors"
-      >
-        <i class="fas fa-envelope w-4 h-4"></i>
-        <span class="hidden lg:inline">{company.contact.email}</span>
-        <span class="lg:hidden">Email</span>
-      </a>
-    </div>
-
-    <!-- Copyright & Address -->
-    <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
-      <p class="text-xs text-gray-500">
-        © {currentYear} {company.name}. Todos los derechos reservados.
-      </p>
-      <p class="text-xs text-gray-400 flex items-center gap-1">
-        <i class="fas fa-map-marker-alt w-3 h-3"></i>
-        <span>{company.address.street}, {company.address.colony}</span>
-      </p>
-    </div>
-
   </div>
-</footer>
 
+  </footer>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  "name": "Dharma Clinic",
+  "alternateName": "Dharma Medicina Bioregenerativa",
+  "description": description,
+  "url": "https://dharma-clinic.com", 
+  "logo": logoSrc,
+  "image": logoSrc,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": address.street,
+    "addressLocality": address.city,
+    "addressRegion": "Ayacucho",
+    "postalCode": "05001",
+    "addressCountry": "PE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": -13.1605, // Coordenadas aproximadas de Ayacucho
+    "longitude": -74.2257
+  },
+  "telephone": phone,
+  "email": email,
+  "priceRange": "S/.",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "09:00",
+      "closes": "20:00"
+    }
+  ],
+  "medicalSpecialty": [
+    "Regenerative Medicine",
+    "Medical Ozone Therapy",
+    "Stem Cell Therapy"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": phone,
+    "contactType": "customer service",
+    "availableLanguage": "Spanish"
+  },
+  "sameAs": socialLinks.filter(s => s.url).map(s => s.url)
+})} />

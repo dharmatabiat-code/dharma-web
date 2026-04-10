@@ -1,8 +1,8 @@
 ---
 // Header.astro
 import { company } from "../data/company";
-import NavDesktop from "./NavDesktop.astro";
-import NavMobile from "./NavMobile.astro";
+import NavDesktop from "./header/NavDesktop.astro";
+import NavMobile from "./header/NavMobile.astro";
 
 export interface Props {
   navItems?: { label: string; href: string }[];
@@ -31,10 +31,12 @@ const navItemsMobile = [...navItems, { label: "Contacto", href: "#contacto" }];
 
 <header
   id="main-header"
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent py-6"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out bg-transparent py-6"
   data-aos="fade-down"
-  data-aos-duration="600"
+  data-aos-duration="800"
+  data-aos-once="true" 
 >
+
   <div
     id="header-border"
     class="absolute bottom-0 left-0 right-0 h-px bg-slate-200/0 transition-all duration-500"
@@ -85,6 +87,18 @@ const navItemsMobile = [...navItems, { label: "Contacto", href: "#contacto" }];
   import { initHeader } from "../scripts/header.ts";
   initHeader();
 </script>
+<style>
+  #main-header {
+    /* Forzamos que estas propiedades siempre sean transicionables */
+    transition-property: background-color, padding, backdrop-filter, box-shadow;
+    transition-duration: 500ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: padding, background-color;
+  }
 
+  #main-logo {
+    transition: height 500ms ease-in-out;
+  }
+</style>
 
 </div>

@@ -1,0 +1,29 @@
+---
+interface Props {
+  logoSrc: string;
+  logoAlt: string;
+  title: string;
+  description: string;
+}
+
+const { logoSrc, logoAlt, title, description } = Astro.props;
+---
+
+<div class="flex flex-col items-center md:items-start text-center md:text-left space-y-6" data-aos="fade-up" data-aos-delay="100">
+  <a href="/" class="group transition-transform duration-500 hover:scale-105">
+    <img
+      src={logoSrc}
+      class="h-14 w-auto object-contain"
+      alt={logoAlt}
+      loading="lazy"
+    />
+  </a>
+  <div class="space-y-4">
+    <p class="text-slate-900 font-bold text-[11px] tracking-[0.2em] uppercase">
+      {title}
+    </p>
+    <p class="text-slate-500 text-sm leading-relaxed max-w-xs font-light italic">
+      {description}
+    </p>
+  </div>
+</div>

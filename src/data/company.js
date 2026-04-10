@@ -1,6 +1,6 @@
 export const company = {
   name: "Dharma",
-  tagline: "Medicina Bioregenerativa de Vanguardia",
+  tagline: "Medicina Bioregenerativa e integrativa de Vanguardia",
   description: "Líderes en medicina bioregenerativa. Tratamientos con células madre, PRP y terapias regenerativas para restaurar tu salud desde la raíz.",
   address: {
     street: "Av. Principal 123",

@@ -23,7 +23,7 @@ interface Props {
 const {
   logoSrc = "/logos/logo-largo.png",
   logoAlt = "Logo DHARMA CLINIC",
-  title = "Medicina Bioregenerativa e integrativa",
+  title = `${company.name} - ${company.tagline}`,
   description = "Restaurando tu vitalidad desde la raíz con ciencia epigenética y calidez humana.",
   menuItems = [
     { label: "Inicio", href: "#inicio" },
@@ -53,7 +53,7 @@ const {
   <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-px bg-linear-to-r from-transparent via-amber-200 to-transparent"></div>
 
   <div class="max-w-350 mx-auto px-6">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-24">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-4 lg:mb-24">
       <FooterLogo logoSrc={logoSrc} logoAlt={logoAlt} title={title} description={description} />
       <FooterMenu menuItems={menuItems} />
       <FooterContact address={address} phone={phone} email={email} />

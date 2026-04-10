@@ -1,242 +1,224 @@
 ---
 import LayoutLegales from "../../layouts/LayoutLegales.astro";
 import { company } from "../../data/company";
+
+// Definimos las secciones para automatizar el índice y las animaciones
+const sections = [
+  { id: "introduccion", title: "1. Introducción", icon: "fa-user-lock" },
+  { id: "recopilacion", title: "2. Información que Recopilamos", icon: "fa-database" },
+  { id: "uso", title: "3. Cómo Usamos su Información", icon: "fa-hand-holding-heart" },
+  { id: "seguridad", title: "4. Seguridad y Retención", icon: "fa-shield-halved" },
+  { id: "derechos", title: "5. Sus Derechos", icon: "fa-user-edit" },
+  { id: "contacto", title: "6. Contacto", icon: "fa-address-card" },
+];
 ---
 
 <LayoutLegales title="Política de Privacidad | Dharma - Medicina Bioregenerativa">
-  <!-- Hero Section -->
-  <section class="bg-linear-to-br from-gray-50 via-white to-amber-50 py-20 pt-28">
-    <div class="max-w-4xl mx-auto px-5 text-center">
-      <span class="inline-block bg-linear-to-r from-amber-700 to-amber-500 text-white px-5 py-2 rounded-full text-sm font-semibold tracking-wider uppercase mb-5">
-        <i class="fas fa-shield-alt mr-2"></i> Información Legal
-      </span>
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Política de Privacidad</h1>
-      <div class="h-0.75 w-20 bg-linear-to-r from-amber-500 via-amber-300 to-amber-500 mx-auto"></div>
-      <p class="text-gray-600 mt-6 text-lg">Última actualización: {new Date().getFullYear()}</p>
+  <section class="relative bg-linear-to-br from-slate-50 via-white to-amber-50 py-24 pt-32 overflow-hidden">
+    <div class="absolute inset-0 opacity-40 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-5%] w-96 h-96 bg-amber-200 rounded-full blur-3xl animate-pulse"></div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-64 h-64 bg-slate-200 rounded-full blur-3xl opacity-50"></div>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-5 text-center">
+      <h1 class="text-5xl md:text-6xl font-serif text-slate-900 mb-6" data-aos="fade-up">
+        Política de <span class="text-amber-600">Privacidad</span>
+      </h1>
+      <p class="text-slate-500 max-w-2xl mx-auto font-light leading-relaxed text-lg" data-aos="fade-up" data-aos-delay="200">
+        En Dharma, la confidencialidad de su historial clínico y datos personales es nuestra máxima prioridad. Conozca cómo protegemos su información bajo los más altos estándares éticos.
+      </p>
+       <p class="text-slate-400 max-w-2xl mx-auto font-medium tracking-widest uppercase text-[10px] pt-10" data-aos="fade-up" data-aos-delay="200">
+        Última actualización: 10/04/2026 — Ayacucho, Perú
+      </p>
     </div>
   </section>
 
-  <!-- Content Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-5">
-      <div class="prose prose-lg max-w-none">
-        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-6 md:mb-8">
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        
+        <aside class="hidden lg:block lg:col-span-4 sticky top-32 h-fit">
+          <div class="border-l-2 border-amber-100 pl-6 space-y-6">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold mb-8">Navegación</p>
+            {sections.map((sec) => (
+              <a 
+                href={`#${sec.id}`} 
+                class="block text-sm text-slate-500 hover:text-amber-600 transition-all hover:translate-x-2 font-medium"
+              >
+                {sec.title}
+              </a>
+            ))}
+          </div>
+        </aside>
+
+        <div class="lg:col-span-8">
+           <nav class="flex items-center gap-2 text-sm text-gray-500 mb-6 md:mb-8">
           <a href="/" class="hover:text-amber-500 transition-colors">Inicio</a>
           <span class="text-gray-300">/</span>Politica De Privacidad</span>
         </nav>
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-user-lock text-amber-400"></i>
-            1. Introducción
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            En <strong class="text-amber-400">Dharma - Medicina Bioregenerativa</strong>, estamos comprometidos con la protección de su privacidad y la seguridad de sus datos personales. Esta Política de Privacidad describe cómo recopilamos, usamos, divulgamos y protegemos su información.
-          </p>
-        </div>
+          
+          <article id="introduccion" class="mb-20 scroll-mt-32" data-aos="fade-up">
+            <div class="flex items-center gap-4 mb-6">
+                <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">01</span> 
+                Introducción
+             </h2>
+            </div>
+            <div class="bg-slate-50/50 border-l-4 border-amber-500 p-8 rounded-r-3xl mb-6">
+                <p class="text-slate-600 italic leading-relaxed">
+                    "Su confianza es la base de nuestros tratamientos. En Dharma - Medicina Bioregenerativa, no solo cumplimos con las normativas vigentes, sino que aplicamos la ética médica más rigurosa en el manejo de su identidad digital y salud."
+                </p>
+            </div>
+            <p class="text-slate-600 leading-relaxed">
+                Esta política detalla nuestras prácticas respecto a la recolección de datos a través de nuestro sitio web y servicios clínicos presenciales, asegurando que su información sea tratada con integridad y respeto.
+            </p>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-database text-amber-400"></i>
-            2. Información que Recopilamos
-          </h2>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Recopilamos los siguientes tipos de información:
-          </p>
-          <ul class="list-none pl-0 space-y-3">
-            <li class="flex items-start gap-3 text-gray-600 bg-gray-50 p-4 rounded-lg">
-              <i class="fas fa-user text-amber-400 mt-1"></i>
-              <div>
-                <strong class="text-gray-800">Información Personal:</strong>
-                <p class="mb-0">Nombre completo, dirección de correo electrónico, número de teléfono, dirección postal.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 text-gray-600 bg-gray-50 p-4 rounded-lg">
-              <i class="fas fa-notes-medical text-amber-400 mt-1"></i>
-              <div>
-                <strong class="text-gray-800">Información Médica:</strong>
-                <p class="mb-0">Historial médico, condiciones de salud, tratamientos anteriores, resultados de análisis.</p>
-              </div>
-            </li>
-            <li class="flex items-start gap-3 text-gray-600 bg-gray-50 p-4 rounded-lg">
-              <i class="fas fa-laptop text-amber-400 mt-1"></i>
-              <div>
-                <strong class="text-gray-800">Información de Navegación:</strong>
-                <p class="mb-0">Dirección IP, tipo de navegador, páginas visitadas, tiempo de permanencia.</p>
-              </div>
-            </li>
-          </ul>
-        </div>
+          <article id="recopilacion" class="mb-20 scroll-mt-32">
+             <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">02</span> 
+                Información que Recopilamos
+             </h2>
+             
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="p-8 rounded-4xl border border-slate-100 bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500" data-aos="fade-up">
+                    <div class="w-10 h-10 bg-slate-900 text-white rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-id-card"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-2 text-lg">Identidad Personal</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Incluye nombre, DNI, dirección de contacto y datos necesarios para la gestión administrativa de su expediente.</p>
+                </div>
+                <div class="p-8 rounded-xl border border-slate-100 bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-500" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-10 h-10 bg-amber-500 text-slate-900 rounded-xl flex items-center justify-center mb-4">
+                        <i class="fas fa-dna"></i>
+                    </div>
+                    <h3 class="font-bold text-slate-800 mb-2 text-lg">Datos Biométricos y Salud</h3>
+                    <p class="text-sm text-slate-500 leading-relaxed">Historial clínico, resultados de laboratorios y datos biológicos específicos para la medicina regenerativa.</p>
+                </div>
+             </div>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-hand-holding-heart text-amber-400"></i>
-            3. Cómo Usamos su Información
-          </h2>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            La información recopilada se utiliza para los siguientes propósitos:
-          </p>
-          <ul class="list-none pl-0 space-y-2">
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-check text-amber-400"></i>
-              Proporcionar nuestros servicios de medicina bioregenerativa
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-check text-amber-400"></i>
-              Programar y gestionar citas médicas
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-check text-amber-400"></i>
-              Comunicarnos con usted sobre consultas y tratamientos
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-check text-amber-400"></i>
-              Mejorar nuestros servicios y experiencia del usuario
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-check text-amber-400"></i>
-              Cumplir con obligaciones legales y regulatorias
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-check text-amber-400"></i>
-              Enviar información sobre promociones y servicios (con su consentimiento)
-            </li>
-          </ul>
-        </div>
+          <article id="uso" class="mb-20 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">03</span> 
+                Cómo Usamos su Información
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6">
+                Utilizamos los datos recopilados exclusivamente para fines terapéuticos y de mejora de servicio:
+            </p>
+            <ul class="space-y-4">
+                {[
+                    "Personalización de protocolos de medicina bioregenerativa.",
+                    "Coordinación de citas y seguimiento post-tratamiento.",
+                    "Envío de actualizaciones médicas y preventivas (bajo consentimiento).",
+                    "Garantizar la seguridad de nuestras instalaciones clínicas."
+                ].map((item) => (
+                    <li class="flex items-center gap-3 text-slate-600 bg-slate-50 p-4 rounded-2xl border border-slate-100/50">
+                        <i class="fas fa-check text-amber-500 text-xs"></i>
+                        <span class="text-sm">{item}</span>
+                    </li>
+                ))}
+            </ul>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-share-alt text-amber-400"></i>
-            4. Divulgación de Información
-          </h2>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            No vendemos, intercambiamos ni transferimos su información personal a terceros sin su consentimiento, excepto en las siguientes situaciones:
-          </p>
-          <ul class="list-none pl-0 space-y-2">
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-minus-circle text-amber-400"></i>
-              Proveedores de servicios que nos ayudan a operar nuestro sitio web
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-minus-circle text-amber-400"></i>
-              Cuando sea requerido por ley o autoridad competente
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-minus-circle text-amber-400"></i>
-              Para proteger nuestros derechos, seguridad o propiedad
-            </li>
-          </ul>
-        </div>
+          <article id="seguridad" class="mb-20 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">04</span> 
+                Seguridad y Retención
+            </h2>
+            <p class="text-slate-600 leading-relaxed">
+                Sus datos médicos se almacenan en servidores con **encriptación AES-256**, cumpliendo con los estándares internacionales de seguridad en salud. La información se conserva de acuerdo a los plazos legales establecidos por la normativa sanitaria de la región de Ayacucho y el Perú.
+            </p>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-cookie-bite text-amber-400"></i>
-            5. Cookies y Tecnologías de Seguimiento
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            Utilizamos cookies y tecnologías de seguimiento similares para mejorar su experiencia en nuestro sitio web. Puede configurar su navegador para rechazar todas las cookies o para indicar cuándo se envía una cookie.
-          </p>
-        </div>
+          <article id="derechos" class="mb-20 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">05</span> 
+                Sus Derechos (ARCO)
+            </h2>
+            <p class="text-slate-600 mb-6 font-light">
+                Usted tiene pleno control sobre sus datos. En cualquier momento puede ejercer sus derechos de:
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {["Acceso", "Rectificación", "Cancelación", "Oposición"].map((derecho) => (
+                    <div class="text-center p-4 rounded-2xl bg-amber-50 border border-amber-100">
+                        <span class="text-xs font-bold text-amber-800 uppercase tracking-tighter">{derecho}</span>
+                    </div>
+                ))}
+            </div>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-lock text-amber-400"></i>
-            6. Seguridad de la Información
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            Implementamos medidas de seguridad apropiadas para proteger su información personal contra accesos no autorizados, alteración, divulgación o destrucción. Toda la información médica es almacenada en servidores seguros con encriptación de grado médico.
-          </p>
-        </div>
+          <article id="contacto" class="scroll-mt-32" data-aos="fade-up">
+            <div class="bg-slate-900 rounded-[3rem] p-10 md:p-16 relative overflow-hidden shadow-2xl shadow-slate-900/20">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Tiene dudas sobre su  <span class="text-amber-500">privacidad</span>?</h2>
+                    <p class="text-slate-400 mb-10 text-lg font-light leading-relaxed">
+                        Nuestro Oficial de Protección de Datos le atenderá directamente para garantizar que sus derechos sean respetados.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <a href={`mailto:${company.contact.email}`} class="flex items-center gap-4 p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all duration-500 group">
+                            <div class="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center text-slate-900 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-amber-500 font-bold uppercase tracking-widest">E-mail</span>
+                                <span class="text-white text-sm">{company.contact.email}</span>
+                            </div>
+                        </a>
+                        <a href={`tel:${company.contact.phone}`} class="flex items-center gap-4 p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all duration-500 group">
+                            <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-white group-hover:bg-amber-500 group-hover:text-slate-900 transition-all">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Atención</span>
+                                <span class="text-white text-sm">{company.contact.phone}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-clock text-amber-400"></i>
-            7. Retención de Datos
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            Conservaremos su información personal durante el tiempo necesario para cumplir los propósitos descritos en esta política, a menos que la ley requiera o permita un período de retención más largo. Los datos médicos se conservarán según las regulaciones sanitarias aplicables.
-          </p>
-        </div>
-
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-user-edit text-amber-400"></i>
-            8. Sus Derechos
-          </h2>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Usted tiene derecho a:
-          </p>
-          <ul class="list-none pl-0 space-y-2">
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-eye text-amber-400"></i>
-              Acceder a su información personal
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-pencil-alt text-amber-400"></i>
-              Corregir información inexacta
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-trash-alt text-amber-400"></i>
-              Solicitar la eliminación de sus datos
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-ban text-amber-400"></i>
-              Oponerse al tratamiento de sus datos
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-download text-amber-400"></i>
-              Solicitar una copia de sus datos
-            </li>
-          </ul>
-        </div>
-
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-minors text-amber-400"></i>
-            9. Menores de Edad
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            Nuestro sitio web no está diseñado para menores de edad. No recopilamos intencionalmente información de personas menores de 18 años sin el consentimiento de sus padres o tutores legales.
-          </p>
-        </div>
-
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-sync-alt text-amber-400"></i>
-            10. Cambios a esta Política
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            Nos reservamos el derecho de modificar esta Política de Privacidad en cualquier momento. Los cambios entrarán en vigor inmediatamente después de su publicación en esta página. Le recomendamos revisar periódicamente esta política para estar informado sobre cómo protegemos su información.
-          </p>
-        </div>
-
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-address-card text-amber-400"></i>
-            11. Información de Contacto
-          </h2>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Si tiene alguna pregunta o inquietud sobre esta Política de Privacidad, no dude en contactarnos:
-          </p>
-          <div class="bg-amber-50 p-6 rounded-xl border border-amber-200">
-            <p class="text-gray-700 mb-2"><strong><i class="fas fa-building text-amber-400 mr-2"></i>Dharma - Medicina Bioregenerativa</strong></p>
-            <p class="text-gray-700 mb-2"><i class="fas fa-map-marker-alt text-amber-400 mr-2"></i>{company.address.street}, {company.address.colony}</p>
-            <p class="text-gray-700 mb-2">{company.address.city}, {company.address.state}, {company.address.country}</p>
-            <p class="text-gray-700 mb-2"><i class="fas fa-envelope text-amber-400 mr-2"></i>{company.contact.email}</p>
-            <p class="text-gray-700 mb-2"><i class="fas fa-phone text-amber-400 mr-2"></i>{company.contact.phone}</p>
-            <p class="text-gray-700"><i class="fab fa-whatsapp text-amber-400 mr-2"></i>{company.contact.whatsapp}</p>
+          <!-- Back to Home -->
+          <div class="text-center mt-12">
+            <a href="/" class="inline-flex items-center gap-2 bg-linear-to-r from-amber-500 to-amber-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:from-amber-400 hover:to-amber-500 hover:-translate-y-0.5 hover:shadow-lg">
+              <i class="fas fa-arrow-left"></i>
+              <span>Volver al Inicio</span>
+            </a>
           </div>
+
         </div>
-
-      </div>
-
-      <!-- Back to Home -->
-      <div class="text-center mt-12">
-        <a href="/" class="inline-flex items-center gap-2 bg-linear-to-r from-amber-500 to-amber-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:from-amber-400 hover:to-amber-500 hover:-translate-y-0.5 hover:shadow-lg">
-          <i class="fas fa-arrow-left"></i>
-          <span>Volver al Inicio</span>
-        </a>
       </div>
     </div>
   </section>
 </LayoutLegales>
 
+<style>
+  /* Suavizado de Scroll para el índice */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Estilo para el resaltado del índice al pasar el ratón */
+  aside a {
+    position: relative;
+  }
+  
+  aside a::before {
+    content: '';
+    position: absolute;
+    left: -26px;
+    top: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #d4a52a;
+    transition: width 0.3s ease;
+  }
+
+  aside a:hover::before {
+    width: 15px;
+  }
+</style>

@@ -26,26 +26,28 @@ export function initHeader() {
 
   // IntersectionObserver para optimizar el scroll
   const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          // Header fuera de vista: aplicar estilos de scroll
+    ([entry]) => {
+      // Usamos entry.boundingClientRect.top para saber si estamos realmente arriba
+      const isAtTop = entry.boundingClientRect.top >= 0 && entry.isIntersecting;
+
+      if (!isAtTop) {
           header.classList.add("bg-white/90", "backdrop-blur-xl", "py-3", "shadow-lg", "shadow-slate-200/20");
           header.classList.remove("bg-transparent", "py-6");
           logo.classList.add("h-10", "md:h-12");
           logo.classList.remove("h-14", "md:h-16");
           border.classList.add("bg-slate-200/50");
-        } else {
-          // Header en vista: revertir estilos
+      } else {
           header.classList.remove("bg-white/90", "backdrop-blur-xl", "py-3", "shadow-lg", "shadow-slate-200/20");
           header.classList.add("bg-transparent", "py-6");
           logo.classList.remove("h-10", "md:h-12");
           logo.classList.add("h-14", "md:h-16");
           border.classList.remove("bg-slate-200/50");
-        }
-      });
+      }
     },
-    { threshold: 0 }
+    { 
+      threshold: [1], // Se activa justo cuando el sentinel está 100% visible
+      rootMargin: "-1px 0px 0px 0px" // Un pequeño margen para anticipar el cambio
+    }
   );
 
   // Observar un elemento sentinel (puedes agregar un div invisible al top)

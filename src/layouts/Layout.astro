@@ -186,10 +186,10 @@ const faqSchema = {
     <meta name="twitter:image" content={siteUrl + defaultImage} />
 
     <!-- Additional SEO Tags -->
-    <meta name="geo.region" content="MX-CMX" />
-    <meta name="geo.placename" content={company.address.city} />
-    <meta name="geo.position" content="19.4326;-99.1332" />
-    <meta name="ICBM" content="19.4326, -99.1332" />
+    <meta name="geo.region" content="PE-AYA" />
+    <meta name="geo.placename" content="Ayacucho" />
+    <meta name="geo.position" content="-13.1588;-74.2239" />
+    <meta name="ICBM" content="-13.1588, -74.2239" />
 
     <!-- Keywords -->
     <meta name="keywords" content={seo.meta.keywords.join(", ")} />
@@ -266,11 +266,12 @@ const faqSchema = {
       const handleLoader = () => {
         const loader = document.getElementById("preloader");
         if (loader) {
-          // Esperamos a que todo el contenido (imágenes incluidas) cargue
           window.addEventListener("load", () => {
-            loader.classList.add("opacity-0", "pointer-events-none");
-            // Inicializamos AOS justo después de que el loader se vaya
-            initAOS();
+            // Damos 300ms extra para que el usuario vea el mensaje de bienvenida
+            setTimeout(() => {
+              loader.classList.add("opacity-0", "pointer-events-none");
+              initAOS();
+            }, 300);
           });
         }
       };

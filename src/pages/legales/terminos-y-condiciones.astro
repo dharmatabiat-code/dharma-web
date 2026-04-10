@@ -1,172 +1,235 @@
 ---
 import LayoutLegales from "../../layouts/LayoutLegales.astro";
 import { company } from "../../data/company";
+
+// Definimos todas las secciones para el índice lateral
+const sections = [
+  { id: "aceptacion", title: "1. Aceptación de Términos", icon: "fa-file-contract" },
+  { id: "servicios", title: "2. Servicios Médicos", icon: "fa-user-md" },
+  { id: "informacion", title: "3. Información de Contacto", icon: "fa-info-circle" },
+  { id: "citas", title: "4. Citas y Consultas", icon: "fa-calendar-check" },
+  { id: "privacidad", title: "5. Privacidad", icon: "fa-shield-alt" },
+  { id: "responsabilidad", title: "6. Limitación de Responsabilidad", icon: "fa-exclamation-triangle" },
+  { id: "propiedad", title: "7. Propiedad Intelectual", icon: "fa-copyright" },
+  { id: "terceros", title: "8. Enlaces a Terceros", icon: "fa-link" },
+  { id: "ley", title: "9. Ley Aplicable", icon: "fa-balance-scale" },
+  { id: "contacto", title: "10. Contacto", icon: "fa-phone-alt" },
+];
 ---
 
 <LayoutLegales title="Términos y Condiciones | Dharma - Medicina Bioregenerativa">
-  <!-- Hero Section -->
-  <section class="bg-linear-to-br from-gray-50 via-white to-amber-50 py-20 pt-28">
-    <div class="max-w-4xl mx-auto px-5 text-center">
-      <span class="inline-block bg-linear-to-r from-amber-700 to-amber-500 text-white px-5 py-2 rounded-full text-sm font-semibold tracking-wider uppercase mb-5">
-        <i class="fas fa-gavel mr-2"></i> Información Legal
-      </span>
-      <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Términos y Condiciones</h1>
-      <div class="h-0.75 w-20 bg-linear-to-r from-amber-500 via-amber-300 to-amber-500 mx-auto"></div>
-      <p class="text-gray-600 mt-6 text-lg">Última actualización: {new Date().getFullYear()}</p>
+  <section class="relative bg-linear-to-br from-slate-50 via-white to-amber-50 py-24 pt-32 overflow-hidden">
+    <div class="absolute inset-0 opacity-40 pointer-events-none">
+        <div class="absolute top-[-10%] right-[-5%] w-96 h-96 bg-amber-200 rounded-full blur-3xl animate-pulse"></div>
+    </div>
+
+    <div class="relative max-w-4xl mx-auto px-5 text-center">
+      <h1 class="text-5xl md:text-6xl font-serif text-slate-900 mb-6" data-aos="fade-up">
+        Términos y <span class="text-amber-600">Condiciones</span>
+      </h1>
+       <p class="text-slate-500 max-w-2xl mx-auto font-light leading-relaxed text-lg" data-aos="fade-up" data-aos-delay="200">
+       Conozca los lineamientos y compromisos que rigen nuestra relación profesional. En Dharma, trabajamos bajo un marco legal sólido para garantizar la excelencia en cada tratamiento.
+      </p>
+      <p class="text-slate-400 max-w-2xl mx-auto font-medium tracking-widest uppercase text-[10px] pt-10" data-aos="fade-up" data-aos-delay="200">
+        Última actualización: 10/04/2026 — Ayacucho, Perú
+      </p>
     </div>
   </section>
 
-  <!-- Content Section -->
-  <section class="py-16 bg-white">
-    <div class="max-w-4xl mx-auto px-5">
-      <div class="prose prose-lg max-w-none">
-        <!-- Breadcrumb -->
-        <nav class="flex items-center gap-2 text-sm text-gray-500 mb-6 md:mb-8">
-          <a href="/" class="hover:text-amber-500 transition-colors">Inicio</a>
-          <span class="text-gray-300">/</span>
-          <span class="text-gray-700 font-medium">Terminos y Condiciones</span>
-        </nav>
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-file-contract text-amber-400"></i>
-            1. Aceptación de Términos
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            Al acceder y utilizar el sitio web de <strong class="text-amber-400">Dharma - Medicina Bioregenerativa</strong>, usted acepta estar sujeto a los siguientes Términos y Condiciones de uso. Si no está de acuerdo con alguno de estos términos, por favor no utilice nuestro sitio web.
-          </p>
-        </div>
-
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-user-md text-amber-400"></i>
-            2. Servicios Médicos
-          </h2>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Dharma es un centro especializado en medicina bioregenerativa que ofrece los siguientes servicios:
-          </p>
-          <ul class="list-none pl-0 space-y-2">
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-check-circle text-amber-400"></i>
-              Terapia con Células Madre
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-check-circle text-amber-400"></i>
-              Plasma Rico en Plaquetas (PRP)
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-check-circle text-amber-400"></i>
-              Medicina Regenerativa
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-check-circle text-amber-400"></i>
-              Tratamientos Estéticos
-            </li>
-            <li class="flex items-center gap-2 text-gray-600">
-              <i class="fas fa-check-circle text-amber-400"></i>
-              Medicina Antiaging
-            </li>
-          </ul>
-        </div>
-
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-info-circle text-amber-400"></i>
-            3. Información de Contacto
-          </h2>
-          <div class="bg-gray-50 p-6 rounded-xl border border-amber-200/30">
-            <p class="text-gray-600 mb-3"><strong class="text-amber-400">Dharma - Medicina Bioregenerativa</strong></p>
-            <p class="text-gray-600 mb-2"><i class="fas fa-map-marker-alt text-amber-400 mr-2"></i>{company.address.street}, {company.address.colony}, {company.address.city}, {company.address.state}, {company.address.country}</p>
-            <p class="text-gray-600 mb-2"><i class="fas fa-phone text-amber-400 mr-2"></i>{company.contact.phone}</p>
-            <p class="text-gray-600 mb-2"><i class="fas fa-envelope text-amber-400 mr-2"></i>{company.contact.email}</p>
-            <p class="text-gray-600"><i class="fas fa-clock text-amber-400 mr-2"></i>{company.hours.mondayToSaturday.open} - {company.hours.mondayToSaturday.close}</p>
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-5">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        
+        <aside class="hidden lg:block lg:col-span-4 sticky top-32 h-fit">
+          <div class="border-l-2 border-amber-100 pl-6 space-y-5">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-slate-400 font-bold mb-6">Contenido</p>
+            {sections.map((sec) => (
+              <a href={`#${sec.id}`} class="block text-sm text-slate-500 hover:text-amber-600 transition-all hover:translate-x-2 font-medium">
+                {sec.title}
+              </a>
+            ))}
           </div>
-        </div>
+        </aside>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-calendar-check text-amber-400"></i>
-            4. Citas y Consultas
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            Las citas programadas están sujetas a disponibilidad. Recomendamos llegar puntual a su cita. Si necesita cancelar o reprogramar, por favor notifíquenos con al menos 24 horas de anticipación.
-          </p>
-        </div>
+          <div class="lg:col-span-8">
+            <nav class="flex items-center gap-2 text-sm text-gray-500 mb-6 md:mb-8">
+            <a href="/" class="hover:text-amber-500 transition-colors">Inicio</a>
+            <span class="text-gray-300">/</span>
+            <span class="text-gray-700 font-medium">Terminos y Condiciones</span>
+          </nav>
+          
+          <article id="aceptacion" class="mb-16 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-4">
+                    <span class="text-amber-500 font-serif opacity-30 text-4xl">01</span> 
+                    Aceptación de Términos
+            </h2>
+            <p class="text-slate-600 leading-relaxed mb-6">
+                Al acceder y utilizar el sitio web de <strong class="text-amber-600 font-semibold">Dharma - Medicina Bioregenerativa</strong>, usted reconoce haber leído, entendido y aceptado cumplir con estos Términos y Condiciones.
+            </p>
+            <div class="bg-amber-50 border border-amber-100 p-6 rounded-2xl italic text-amber-900 text-sm">
+                <strong>Nota importante:</strong> El uso continuo de este portal tras cualquier modificación de los términos constituye la aceptación de dichos cambios.
+            </div>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-shield-alt text-amber-400"></i>
-            5. Privacidad y Confidencialidad
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            Toda la información proporcionada por nuestros pacientes es tratada de manera confidencial y de acuerdo con nuestra Política de Privacidad. Sus datos médicos son protegidos bajo los más altos estándares de seguridad y confidencialidad.
-          </p>
-        </div>
+          <article id="servicios" class="mb-16 scroll-mt-32">
+             <h2 class="text-2xl font-bold text-slate-800 mb-8 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">02</span> 
+                Servicios Médicos
+             </h2>
+             <p class="text-slate-600 mb-6 leading-relaxed">
+                Dharma proporciona servicios especializados sujetos a evaluación médica previa:
+             </p>
+             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {["Terapia de Células Madre", "Plasma Rico en Plaquetas (PRP)", "Medicina Antiaging", "Tratamientos Estéticos"].map((item) => (
+                    <div class="flex items-center gap-3 p-4 bg-slate-50 rounded-xl border border-slate-100 transition-all hover:bg-white hover:shadow-md">
+                        <i class="fas fa-check-circle text-amber-500"></i>
+                        <span class="text-sm font-medium text-slate-700">{item}</span>
+                    </div>
+                ))}
+             </div>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-exclamation-triangle text-amber-400"></i>
-            6. Limitación de Responsabilidad
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            La información proporcionada en este sitio web tiene carácter informativo y educativo. No sustituye la consulta médica profesional. Los resultados de los tratamientos pueden variar según cada paciente. Dharma no se hace responsable de decisiones tomadas basadas en la información de este sitio sin previa consulta con nuestros especialistas.
-          </p>
-        </div>
+          <article id="informacion" class="mb-16 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">03</span> 
+                Información de Contacto
+            </h2>
+            <div class="bg-slate-50 p-8 rounded-4xl border border-slate-100 space-y-4">
+                <p class="text-slate-800 font-bold">Dharma - Medicina Bioregenerativa</p>
+                <div class="grid gap-3 text-slate-600 text-sm">
+                    <p class="flex items-start gap-3"><i class="fas fa-map-marker-alt text-amber-500 mt-1"></i> {company.address.street}, {company.address.colony}, {company.address.city}, {company.address.state}</p>
+                    <p class="flex items-center gap-3"><i class="fas fa-phone text-amber-500"></i> {company.contact.phone}</p>
+                    <p class="flex items-center gap-3"><i class="fas fa-envelope text-amber-500"></i> {company.contact.email}</p>
+                    <p class="flex items-center gap-3"><i class="fas fa-clock text-amber-500"></i> {company.hours.mondayToSaturday.open} - {company.hours.mondayToSaturday.close}</p>
+                </div>
+            </div>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-copyright text-amber-400"></i>
-            7. Propiedad Intelectual
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            Todo el contenido de este sitio web, incluyendo textos, imágenes, logotipos, gráficos y código, es propiedad de Dharma o tiene autorización para su uso. Queda prohibida la reproducción, distribución o modificación sin autorización previa y por escrito.
-          </p>
-        </div>
+          <article id="citas" class="mb-16 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">04</span> 
+                Citas y Consultas
+            </h2>
+            <ul class="space-y-4">
+                <li class="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                    <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center text-amber-600 shrink-0"><i class="fas fa-clock"></i></div>
+                    <p class="text-slate-600 text-sm"><strong>Puntualidad:</strong> Se solicita llegar 10 minutos antes de la hora programada para protocolos de ingreso.</p>
+                </li>
+                <li class="flex gap-4 p-5 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                    <div class="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center text-red-500 shrink-0"><i class="fas fa-calendar-times"></i></div>
+                    <p class="text-slate-600 text-sm"><strong>Cancelaciones:</strong> Deben realizarse con un mínimo de 24 horas de antelación para evitar cargos administrativos.</p>
+                </li>
+            </ul>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-link text-amber-400"></i>
-            8. Enlaces a Terceros
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            Este sitio puede contener enlaces a sitios web de terceros. Dharma no tiene control sobre el contenido o las prácticas de privacidad de dichos sitios y no se hace responsable de ellos.
-          </p>
-        </div>
+          <article id="privacidad" class="mb-16 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">05</span> 
+                Privacidad y Confidencialidad
+            </h2>
+            <p class="text-slate-600 leading-relaxed">
+                Toda la información proporcionada por nuestros pacientes es tratada de acuerdo con nuestra Política de Privacidad. Sus datos médicos son protegidos bajo los más altos estándares de seguridad y confidencialidad ética.
+            </p>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-balance-scale text-amber-400"></i>
-            9. Ley Aplicable
-          </h2>
-          <p class="text-gray-600 leading-relaxed">
-            Estos Términos y Condiciones se rigen por las leyes de la República del Perú. Cualquier controversia derivada de estos términos será sometida a la jurisdicción exclusiva de los tribunales de la ciudad de Lima, Perú.
-          </p>
-        </div>
+          <article id="responsabilidad" class="mb-16 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">06</span> 
+                Limitación de Responsabilidad
+            </h2>
+            <div class="bg-slate-900 text-slate-300 p-8 rounded-4xl text-sm leading-relaxed border border-slate-800">
+                <p class="mb-4">La información proporcionada en este sitio web tiene carácter <span class="text-white font-bold">informativo y educativo</span>. No sustituye la consulta médica profesional.</p>
+                <p>Dharma no se hace responsable de decisiones tomadas basadas en la información de este sitio sin previa consulta con nuestros especialistas en Ayacucho.</p>
+            </div>
+          </article>
 
-        <div class="mb-10">
-          <h2 class="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-3">
-            <i class="fas fa-phone-alt text-amber-400"></i>
-            10. Contacto
-          </h2>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Si tiene alguna pregunta sobre estos Términos y Condiciones, puede contactarnos en:
-          </p>
-          <div class="bg-amber-50 p-6 rounded-xl border border-amber-200">
-            <p class="text-gray-700"><strong>Email:</strong> {company.contact.email}</p>
-            <p class="text-gray-700"><strong>Teléfono:</strong> {company.contact.phone}</p>
-            <p class="text-gray-700"><strong>WhatsApp:</strong> {company.contact.whatsapp}</p>
+          <article id="propiedad" class="mb-16 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">07</span> 
+                Propiedad Intelectual
+            </h2>
+            <p class="text-slate-600 leading-relaxed">
+                Todo el contenido, incluyendo textos, logotipos y gráficos, es propiedad de Dharma. Queda prohibida la reproducción total o parcial sin autorización previa y por escrito.
+            </p>
+          </article>
+
+          <article id="terceros" class="mb-16 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">08</span> 
+                Enlaces a Terceros
+            </h2>
+            <p class="text-slate-600 leading-relaxed">
+                Dharma no tiene control sobre el contenido o las prácticas de privacidad de sitios web externos vinculados y no se hace responsable de ellos.
+            </p>
+          </article>
+
+          <article id="ley" class="mb-16 scroll-mt-32" data-aos="fade-up">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 flex items-center gap-4">
+                <span class="text-amber-500 font-serif opacity-30 text-4xl">09</span> 
+                Ley Aplicable
+            </h2>
+            <p class="text-slate-600 leading-relaxed">
+                Estos Términos y Condiciones se rigen por las leyes de la República del Perú. Cualquier controversia será resuelta ante los tribunales competentes de la ciudad de <strong class="text-slate-900">Ayacucho, Huamanga</strong>.
+            </p>
+          </article>
+          
+          <article id="contacto" class="scroll-mt-32" data-aos="fade-up">
+            <div class="bg-slate-900 rounded-[3rem] p-10 md:p-16 relative overflow-hidden shadow-2xl shadow-slate-900/20">
+                <div class="absolute top-0 right-0 w-96 h-96 bg-amber-500/10 rounded-full blur-[100px] translate-x-1/2 -translate-y-1/2"></div>
+                
+                <div class="relative z-10">
+                    <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+                      ¿Tiene dudas sobre nuestros <span class="text-amber-500">términos y condiciones</span>?
+                    </h2>
+                    <p class="text-slate-400 mb-10 text-lg font-light leading-relaxed">
+                     La claridad es parte de nuestro compromiso. Si necesita una explicación detallada sobre nuestras cláusulas, no dude en contactar con nuestra dirección administrativa.
+                    </p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <a href={`mailto:${company.contact.email}`} class="flex items-center gap-4 p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all duration-500 group">
+                            <div class="w-12 h-12 bg-amber-500 rounded-2xl flex items-center justify-center text-slate-900 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-amber-500 font-bold uppercase tracking-widest">E-mail</span>
+                                <span class="text-white text-sm">{company.contact.email}</span>
+                            </div>
+                        </a>
+                        <a href={`tel:${company.contact.phone}`} class="flex items-center gap-4 p-6 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-amber-500/50 transition-all duration-500 group">
+                            <div class="w-12 h-12 bg-white/10 rounded-2xl flex items-center justify-center text-white group-hover:bg-amber-500 group-hover:text-slate-900 transition-all">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">Atención</span>
+                                <span class="text-white text-sm">{company.contact.phone}</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+          </article>
+
+           <!-- Back to Home -->
+          <div class="text-center mt-12">
+            <a href="/" class="inline-flex items-center gap-2 bg-linear-to-r from-amber-500 to-amber-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:from-amber-400 hover:to-amber-500 hover:-translate-y-0.5 hover:shadow-lg">
+              <i class="fas fa-arrow-left"></i>
+              <span>Volver al Inicio</span>
+            </a>
           </div>
+
         </div>
-
-      </div>
-
-      <!-- Back to Home -->
-      <div class="text-center mt-12">
-        <a href="/" class="inline-flex items-center gap-2 bg-linear-to-r from-amber-500 to-amber-600 text-white font-semibold px-6 py-3 rounded-full transition-all duration-300 hover:from-amber-400 hover:to-amber-500 hover:-translate-y-0.5 hover:shadow-lg">
-          <i class="fas fa-arrow-left"></i>
-          <span>Volver al Inicio</span>
-        </a>
       </div>
     </div>
   </section>
 </LayoutLegales>
 
+<style>
+  html { scroll-behavior: smooth; }
+  aside a { position: relative; transition: all 0.3s ease; }
+  aside a::before {
+    content: ''; position: absolute; left: -26px; top: 50%;
+    width: 0; height: 2px; background-color: #d4a52a;
+    transition: width 0.3s ease;
+  }
+  aside a:hover::before { width: 15px; }
+</style>
