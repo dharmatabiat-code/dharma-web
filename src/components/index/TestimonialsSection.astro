@@ -63,13 +63,13 @@ const { testimonialsData = testimonials } = Astro.props;
       </div>
 
       
-      <div class="flex justify-center items-center gap-3 mt-12">
+      <div class="flex justify-center items-center gap-2 mt-12">
         {testimonials.map((_, index) => (
           <button 
             class="testimonial-dot group relative h-4 flex items-center focus:outline-none"
             aria-label={`Ver testimonio ${index + 1}`}
           >
-            <span class="block w-2.5 h-2.5 rounded-full bg-slate-300 transition-all duration-500 group-[.active]:bg-amber-400 group-[.active]:w-10"></span>
+            <span class="block w-8 h-2 rounded-full bg-slate-300 transition-transform duration-500 origin-left scale-x-25 group-[.active]:bg-amber-400 group-[.active]:scale-x-100"></span>
           </button>
         ))}
       </div>

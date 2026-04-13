@@ -286,11 +286,23 @@ const faqSchema = {
       };
 
       const initAOS = () => {
-        AOS.init({
-          duration: 1000,
-          once: true,
-          offset: 120,
-        });
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(() => {
+            AOS.init({
+              duration: 1000,
+              once: true,
+              offset: 120,
+            });
+          });
+        } else {
+          setTimeout(() => {
+            AOS.init({
+              duration: 1000,
+              once: true,
+              offset: 120,
+            });
+          }, 100);
+        }
       };
 
       // Ejecutar lógica
