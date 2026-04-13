@@ -23,17 +23,20 @@ const {
 } = Astro.props;
 ---
 
-<section id="acerca" class="py-25 bg-white relative overflow-hidden" data-aos="fade-up">
+<section id="acerca" class="py-25 bg-white relative overflow-hidden">
   <div class="max-w-7xl mx-auto px-5">
-    <div class="text-center mb-16" data-aos="fade-up" data-aos-delay="200">
-     <span class="inline-block bg-linear-to-r from-amber-700 to-amber-500 text-white px-5 py-2 rounded-full text-sm font-semibold tracking-wider uppercase mb-5"
-          ><i class="fas fa-star mr-2"></i> Sobre Dharma</span>
+    
+    <div class="text-center mb-16" data-aos="fade-down" data-aos-duration="1000">
+      <span class="inline-block bg-linear-to-r from-amber-700 to-amber-500 text-white px-5 py-2 rounded-full text-sm font-semibold tracking-wider uppercase mb-5">
+        <i class="fas fa-star mr-2"></i> Sobre Dharma
+      </span>
       <h2 class="text-4xl md:text-5xl font-serif text-slate-900 mb-4">{title}</h2>
-      <div class="h-1 w-20 bg-linear-to-r from-amber-500 to-amber-200 mx-auto rounded-full"></div>
+      <div class="h-1 w-20 bg-linear-to-r from-amber-500 to-amber-200 mx-auto rounded-full" data-aos="width-expand" data-aos-delay="500"></div>
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <div class="relative order-2 lg:order-1" data-aos="fade-up" data-aos-delay="300">
+      
+      <div class="relative order-2 lg:order-1" data-aos="fade-right" data-aos-duration="1200">
         <div class="absolute -inset-4 bg-slate-100 rounded-[2.5rem] -rotate-2"></div>
         <div class="relative h-125 w-full rounded-4xl overflow-hidden shadow-2xl border border-amber-100 bg-slate-200">
           <Image
@@ -41,14 +44,14 @@ const {
             alt={imageAlt}
             width={891}
             height={768}
-            sizes="(max-width: 768px) 100vw, 50vw"
             format="webp"
             quality={80}
             class="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
             loading="lazy"
           />
           <div class="absolute inset-0 bg-linear-to-t from-slate-900/40 to-transparent"></div>
-          <div class="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-md rounded-2xl border border-white/50">
+          
+          <div class="absolute bottom-6 left-6 right-6 p-6 bg-white/90 backdrop-blur-md rounded-2xl border border-white/50" data-aos="zoom-in" data-aos-delay="800">
             <p class="text-slate-800 text-sm font-medium italic">
               "Transformamos tu salud optimizando la expresión de tus genes y restaurando tu vitalidad celular."
             </p>
@@ -56,20 +59,24 @@ const {
         </div>
       </div>
 
-      <div class="order-1 lg:order-2 space-y-8" data-aos="fade-up" data-aos-delay="300">
-        <div class="space-y-6">
+      <div class="order-1 lg:order-2 space-y-8">
+        <div class="space-y-6" data-aos="fade-left" data-aos-delay="200">
           <p class="text-slate-600 text-xl leading-relaxed font-light">
             {description}
           </p>
           <p class="text-slate-600 text-lg leading-relaxed">
-            Bajo la dirección de la Dra. Amalia Luque, aplicamos protocolos de <span class="font-semibold text-slate-800">clase mundial</span> (Rusia, EE.UU. y España) que combinan la biotecnología avanzada con terapias integrativas para lograr resultados extraordinarios sin recurrir a procedimientos invasivos.
+            Bajo la dirección de la Dra. Amalia Luque, aplicamos protocolos de <span class="font-semibold text-slate-800">clase mundial</span> que combinan la biotecnología avanzada con terapias integrativas.
           </p>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
           {features.map((feature, index) => (
-            <div class={`group flex items-start gap-4 ${index < 2 ? 'data-aos="zoom-in" data-aos-delay="' + ((index + 1) * 100) + '"' : ''}`}>
-              <div class="shrink-0 w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 border border-amber-100 transition-colors group-hover:bg-amber-500 group-hover:text-white">
+            <div 
+              class="group flex items-start gap-4" 
+              data-aos="fade-up" 
+              data-aos-delay={400 + (index * 150)}
+            >
+              <div class="shrink-0 w-12 h-12 bg-amber-50 rounded-2xl flex items-center justify-center text-amber-600 border border-amber-100 transition-all duration-500 group-hover:bg-amber-500 group-hover:text-white group-hover:rotate-12">
                 <i class={`fas ${feature.icon}`}></i>
               </div>
               <div>
@@ -80,6 +87,17 @@ const {
           ))}
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
+<style>
+  [data-aos="width-expand"] {
+    width: 0;
+    transition-property: width;
+  }
+  [data-aos="width-expand"].aos-animate {
+    width: 5rem; /* w-20 */
+  }
+</style>

@@ -10,36 +10,66 @@ const {
 } = Astro.props;
 ---
 
-<section class="py-24 relative overflow-hidden bg-slate-50" data-aos="fade-up">
+<section class="py-24 relative overflow-hidden bg-slate-50">
   <div class="absolute inset-0 opacity-[0.25]"
-       style="background-image: radial-gradient(#d97706 0.7px, transparent 0.7px); background-size: 32px 32px;">
+       style="background-image: radial-gradient(#d97706 0.7px, transparent 0.7px); background-size: 32px 32px;"
+       data-aos="fade-in"
+       data-aos-duration="2000">
   </div>
 
   <div class="absolute inset-0 bg-radial-[at_center_center] from-white via-transparent to-transparent opacity-80"></div>
 
   <div class="max-w-4xl mx-auto px-6 relative">
-    <span class="absolute -top-12 -left-4 md:-left-12 text-amber-200/50 text-[140px] font-serif leading-none select-none italic">"</span>
+    <span 
+      class="absolute -top-12 -left-4 md:-left-12 text-amber-200/50 text-[140px] font-serif leading-none select-none italic"
+      data-aos="fade-down-right"
+      data-aos-delay="400"
+    >
+      "
+    </span>
 
     <div class="relative z-10 text-center space-y-10">
-      <h2 class="text-2xl md:text-4xl lg:text-5xl font-serif italic text-slate-800 leading-[1.3] tracking-tight">
+      <h2 
+        class="text-2xl md:text-4xl lg:text-5xl font-serif italic text-slate-800 leading-[1.3] tracking-tight"
+        data-aos="zoom-in"
+        data-aos-duration="1200"
+      >
         "{quote}"
       </h2>
 
-      <div class="flex flex-col items-center gap-6">
+      <div class="flex flex-col items-center gap-6" data-aos="fade-up" data-aos-delay="600">
         <div class="flex items-center gap-4">
-          <div class="w-8 h-px bg-linear-to-r from-transparent to-amber-400"></div>
-          <div class="w-2 h-2 bg-amber-500 rotate-45"></div>
-          <div class="w-8 h-px bg-linear-to-l from-transparent to-amber-400"></div>
+          <div class="w-12 h-px bg-linear-to-r from-transparent to-amber-400"></div>
+          <div class="w-2 h-2 bg-amber-500 rotate-45 shadow-[0_0_10px_rgba(245,158,11,0.5)]"></div>
+          <div class="w-12 h-px bg-linear-to-l from-transparent to-amber-400"></div>
         </div>
 
         <div class="text-center">
           <p class="text-slate-900 font-bold tracking-[0.4em] uppercase text-xs md:text-sm">
             {author}
           </p>
+          <div class="mt-2 h-0.5 w-0 bg-amber-500 mx-auto transition-all duration-1000 group-hover:w-full" data-aos="width-expand" data-aos-delay="1000"></div>
         </div>
       </div>
     </div>
 
-    <span class="absolute -bottom-20 -right-4 md:-right-12 text-amber-200/50 text-[140px] font-serif leading-none select-none rotate-180 italic">"</span>
+    <span 
+      class="absolute -bottom-20 -right-4 md:-right-12 text-amber-200/50 text-[140px] font-serif leading-none select-none rotate-180 italic"
+      data-aos="fade-up-left"
+      data-aos-delay="400"
+    >
+      "
+    </span>
   </div>
 </section>
+
+<style>
+  /* Animación de expansión para la línea del autor */
+  [data-aos="width-expand"] {
+    width: 0;
+    transition-property: width;
+  }
+  [data-aos="width-expand"].aos-animate {
+    width: 3rem; /* Tamaño discreto para el autor */
+  }
+</style>
