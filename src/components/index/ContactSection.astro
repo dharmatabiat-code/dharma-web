@@ -42,7 +42,7 @@ const { companyData = company } = Astro.props;
               <i class="fas fa-map-marker-alt text-xl"></i>
             </div>
             <div>
-              <h4 class="text-slate-900 font-bold text-lg mb-1">Ubicación</h4>
+              <h3 class="text-slate-900 font-bold text-lg mb-1">Ubicación</h3>
               <p class="text-slate-500 text-sm leading-relaxed">
                 {companyData.address. street}, {companyData.address.city}, {companyData.address.state}
               </p>
@@ -54,7 +54,7 @@ const { companyData = company } = Astro.props;
               <i class="fas fa-phone-alt text-xl"></i>
             </div>
             <div>
-              <h4 class="text-slate-900 font-bold text-lg mb-1">Teléfono</h4>
+              <h3 class="text-slate-900 font-bold text-lg mb-1">Teléfono</h3>
               <p class="text-slate-500 text-sm">{companyData.contact.phone}</p>
               <span class="text-xs text-amber-600 font-semibold uppercase tracking-wider">Atención inmediata</span>
             </div>
@@ -65,7 +65,7 @@ const { companyData = company } = Astro.props;
               <i class="fas fa-envelope text-xl"></i>
             </div>
             <div>
-              <h4 class="text-slate-900 font-bold text-lg mb-1">Correo Electrónico</h4>
+              <h3 class="text-slate-900 font-bold text-lg mb-1">Correo Electrónico</h3>
               <p class="text-slate-500 text-sm font-medium">{companyData.contact.email}</p>
             </div>
           </div>
@@ -75,7 +75,7 @@ const { companyData = company } = Astro.props;
               <i class="fas fa-clock text-xl"></i>
             </div>
             <div>
-              <h4 class="text-slate-900 font-bold text-lg mb-1">Horario de Atención</h4>
+              <h3 class="text-slate-900 font-bold text-lg mb-1">Horario de Atención</h3>
               <p class="text-slate-500 text-sm leading-relaxed">
                 Lun-Sáb: {companyData.hours.mondayToSaturday.open} - {companyData.hours.mondayToSaturday.close} | Dom: {companyData.hours.sunday.note}
               </p>
@@ -130,6 +130,7 @@ const { companyData = company } = Astro.props;
               </div>
               <div class="relative group/field">
                 <i class="fas fa-hand-holding-medical absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within/field:text-amber-500 transition-colors z-10"></i>
+                <label for="service" class="sr-only">Selecciona un servicio</label>
                 <select id="service" name="service" class="w-full bg-slate-50 border border-slate-200 text-slate-500 py-4 pl-12 pr-10 rounded-2xl appearance-none focus:outline-none focus:border-amber-400 focus:bg-white focus:ring-4 focus:ring-amber-400/5 transition-all cursor-pointer relative">
                     <option value="">Selecciona un servicio</option>
                     <option value="Medicina Regenerativa">Medicina Regenerativa</option>
