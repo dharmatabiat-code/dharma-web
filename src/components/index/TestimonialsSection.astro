@@ -62,18 +62,40 @@ const { testimonialsData = testimonials } = Astro.props;
         ))}
       </div>
 
-      <div class="flex justify-center gap-3 mt-8" id="testimonial-dots">
-        {testimonialsData.map((_, index) => (
-          <button
-            class="testimonial-dot w-3 h-3 rounded-full bg-amber-200 transition-all duration-300"
-            data-index={index}
+      
+      <div class="flex justify-center items-center gap-3 mt-12">
+        {testimonials.map((_, index) => (
+          <button 
+            class="testimonial-dot group relative h-4 flex items-center focus:outline-none"
             aria-label={`Ver testimonio ${index + 1}`}
-          ></button>
+          >
+            <span class="block w-2.5 h-2.5 rounded-full bg-slate-300 transition-all duration-500 group-[.active]:bg-amber-400 group-[.active]:w-10"></span>
+          </button>
         ))}
       </div>
+
     </div>
   </div>
 </section>
+
+<style>
+  /* El JS de tu archivo externo manejará la clase .active */
+  .testimonial-slider {
+    will-change: transform;
+    cursor: grab;
+  }
+  
+  .testimonial-slider:active {
+    cursor: grabbing;
+  }
+
+  /* Mejora para el desplazamiento en móviles */
+  @media (max-width: 768px) {
+    .testimonial-slider {
+      transition-duration: 500ms; /* Un poco más rápido en móvil */
+    }
+  }
+</style>
 
 <script>
   import "../../scripts/testimonial-slider";
