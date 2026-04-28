@@ -2,7 +2,7 @@
 export const seo = {
   site: {
     name: "Dharma - Medicina Bioregenerativa",
-    url: "https://dharma.com.mx",
+    url: "https://dharma.com.pe",
     locale: "es_PE",
     language: "es",
     languageAlternate: "en"

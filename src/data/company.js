@@ -3,7 +3,7 @@ export const company = {
   tagline: "Medicina Bioregenerativa e integrativa de Vanguardia",
   description: "Líderes en medicina bioregenerativa. Tratamientos con células madre, PRP y terapias regenerativas para restaurar tu salud desde la raíz.",
   address: {
-    street: "Av. Principal 123",
+    street: "Av. Los Jardines, Cuadra - 3",
     colony: "San Juan Baustista",
     city: "Huamanga",
     state: "Ayacucho",
@@ -13,7 +13,7 @@ export const company = {
   },
   contact: {
     phone: "+51 997 307 782",
-    email: "info@dharma.co",
+    email: "dharmatabiat@gmail.com",
     whatsapp: "+51 997 307 782",
     linkWhatsapp: "https://wa.me/51997307782"
   },
