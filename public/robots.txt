@@ -1,21 +1,18 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
-# Sitemap
-Sitemap: https://dharma.com.mx/sitemap.xml
+Sitemap: https://www.dharmatabiat.com/sitemap-index.xml
 
-# Crawl-delay (optional, for politeness)
-Crawl-delay: 1
-
-# Disallow admin/private areas
+# Google specific
+User-agent: Googlebot
+Allow: /
 Disallow: /admin/
-Disallow: /api/
-Disallow: /_/
+Disallow: /private/
 
-# Allow static assets
-Allow: /fonts/
-Allow: /images/
-Allow: /logos/
-Allow: /styles/
+# Bing specific  
+User-agent: Bingbot
+Allow: /
 
+# Allow structured data crawling
+User-agent: Google-Structured-Data-Testing-Tool
+Allow: /
