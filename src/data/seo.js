@@ -2,17 +2,17 @@
 export const seo = {
   site: {
     name: "Dharma - Medicina Bioregenerativa",
-    url: "https://dharma.com.pe",
+    url: "https://www.dharmatabiat.com",
     locale: "es_PE",
     language: "es",
-    languageAlternate: "en"
+    languageAlternate: null
   },
   meta: {
     title: {
       default: "Dharma - Medicina Bioregenerativa | Células Madre, PRP y Tratamientos Regenerativos",
       home: "Dharma - Medicina Bioregenerativa | Células Madre, PRP y Tratamientos Regenerativos",
       services: "Servicios de Medicina Bioregenerativa | Dharma",
-      contact: "Contacto | Agenda tu Consulta | Dharma"
+      contact: "Clínica en Ayacucho | Agenda tu Consulta | Dharma"
     },
     description: {
       default: "Dharma - Medicina Bioregenerativa de vanguardia. Tratamientos con células madre, PRP y terapias regenerativas. Restaura tu salud desde la raíz.",
@@ -48,7 +48,7 @@ export const seo = {
   openGraph: {
     type: "website",
     locale: "es_PE",
-    localeAlternate: ["en_US"],
+    localeAlternate: [],
     siteName: "Dharma"
   },
   twitter: {
@@ -59,8 +59,8 @@ export const seo = {
   schema: {
     organization: {
       name: "Dharma",
-      url: "https://dharma.com.mx",
-      logo: "https://dharma.com.mx/logos/logo-largo.png",
+      url: "https://www.dharmatabiat.com",
+      logo: "https://www.dharmatabiat.com/logos/logo-largo.png",
       description: "Medicina Bioregenerativa de Vanguardia",
       sameAs: [
         "https://facebook.com/dharma",
@@ -72,7 +72,7 @@ export const seo = {
     medicalClinic: {
       name: "Dharma - Medicina Bioregenerativa",
       description: "Centro especializado en medicina bioregenerativa y tratamientos con células madre",
-      priceRange: "$$$",
+      priceRange: "S/.",
       paymentAccepted: ["Cash", "Credit Card", "Insurance"],
       currenciesAccepted: "PE, USD"
     }
@@ -88,6 +88,13 @@ export const seo = {
       services: "weekly",
       contact: "monthly"
     }
-  }
+  },
+  address: {
+  "@type": "PostalAddress",
+  addressLocality: "Ayacucho",
+  addressRegion: "Ayacucho",
+  addressCountry: "PE"
+  },
+  areaServed: "Ayacucho",
 };
 
