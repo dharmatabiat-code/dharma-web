@@ -32,8 +32,8 @@ export const company = {
     instagram: "https://instagram.com/dharma",
     twitter: "https://twitter.com/dharma",
     tiktok: "https://tiktok.com/@dharma",
-    youtube: "https://youtube.com/dharma",
-    linkedin: "https://linkedin.com/company/dharma"
+    //youtube: "https://youtube.com/dharma",
+    //linkedin: "https://linkedin.com/company/dharma"
   },
   stats: {
     patients: "5000+",
