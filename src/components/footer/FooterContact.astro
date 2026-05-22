@@ -1,6 +1,6 @@
 ---
 interface Props {
-  address: { street: string; city: string };
+  address: { street: string; city: string; colony: string };
   phone: string;
   email: string;
 }
@@ -20,7 +20,7 @@ const { address, phone, email } = Astro.props;
         </div>
         <span class="text-slate-500 text-[13px] leading-relaxed font-light">
           {address.street}<br/>
-          <span class="font-bold text-slate-800">{address.city}, Perú</span>
+          <span class="font-bold text-slate-800">{address.colony}, {address.city}, Perú</span>
         </span>
       </li>
       <li class="flex items-center gap-4 group">

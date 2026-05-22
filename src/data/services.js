@@ -1,112 +1,76 @@
 
 export const services = [
   {
-    id: "celulas-madre",
-    title: "Terapia con Células Madre",
-    shortTitle: "Células Madre",
-    description: "Utilización de células madre mesenquimales para regenerar tejidos dañados y tratar enfermedades degenerativas.",
-    icon: "fas fa-dna",
+    id: "ozonoterapia-medica",
+    title: "Ozonoterapia Médica",
+    shortTitle: "Ozonoterapia",
+    description: "Aplicación de ozono médico para mejorar la oxigenación celular, reducir la inflamación y estimular el sistema inmunológico.",
+    icon: "fas fa-wind",
     features: [
-      "Rejuvenecimiento facial",
-      "Regeneración articular",
-      "Tratamiento de lesiones"
+      "Tratamiento del dolor crónico",
+      "Oxigenación de tejidos",
+      "Efecto antioxidante y modulador"
     ],
     benefits: [
-      "Regeneración tisular natural",
-      "Tratamiento no invasivo",
-      "Resultados duraderos"
+      "Alivio rápido de la inflamación",
+      "Estimulación de la circulación",
+      "Acción germicida y revitalizante"
     ],
-    image: "/images/services/celulas-madre.jpg"
+    image: "/images/services/ozonoterapia-medica.jpg"
   },
   {
-    id: "prp",
-    title: "Plasma Rico en Plaquetas",
-    shortTitle: "PRP",
-    description: "Tratamiento autólogo que utiliza los factores de crecimiento de tu propia sangre para estimular la regeneración celular.",
-    icon: "fas fa-syringe",
+    id: "biomagnetismo-medico",
+    title: "Biomagnetismo Médico",
+    shortTitle: "Biomagnetismo",
+    description: "Terapia que utiliza imanes de mediana intensidad para equilibrar el pH del cuerpo y combatir virus, bacterias y parásitos.",
+    icon: "fas fa-magnet",
     features: [
-      "Tratamiento capilar",
-      "Rejuvenecimiento de piel",
-      "Lesiones deportivas"
+      "Rastreo biomagnético integral",
+      "Equilibrio del pH bioeléctrico",
+      "Eliminación de patógenos"
     ],
     benefits: [
-      "100% autólogo y seguro",
-      "Sin riesgo de rechazo",
-      "Tiempo de recuperación mínimo"
+      "Terapia 100% natural y segura",
+      "Identificación del origen de la dolencia",
+      "Compatible con otros tratamientos"
     ],
-    image: "/images/services/prp.jpg"
+    image: "/images/services/biomagnetismo-medico.jpg"
   },
   {
-    id: "medicina-regenerativa",
-    title: "Medicina Regenerativa",
-    shortTitle: "Medicina Regenerativa",
-    description: "Protocolos personalizados que combinan biotecnología avanzada con medicina integrativa para resultados óptimos.",
-    icon: "fas fa-dna",
+    id: "medicina-ortomolecular",
+    title: "Medicina Ortomolecular",
+    shortTitle: "Ortomolecular",
+    description: "Nutrición celular avanzada mediante la administración óptima de vitaminas, minerales y aminoácidos de forma personalizada.",
+    icon: "fas fa-vial",
     features: [
-      "Tratamientos antienvejecimiento",
-      "Detoxificación celular",
-      "Optimización hormonal"
+      "Megadosis de Vitamina C",
+      "Sueroterapia personalizada",
+      "Restauración del equilibrio bioquímico"
     ],
     benefits: [
-      "Enfoque integral",
-      "Personalización total",
-      "Tecnología de punta"
+      "Fortalecimiento inmunológico",
+      "Desintoxicación celular profunda",
+      "Aumento inmediato de energía"
     ],
-    image: "/images/services/medicina-regenerativa.jpg"
+    image: "/images/services/medicina-ortomolecular.jpg"
   },
   {
-    id: "terapias-regeneracion",
-    title: "Terapias de Regeneración",
-    shortTitle: "Terapias Regeneración",
-    description: "Tratamientos innovadores que estimulan los procesos naturales de curación y renovación de tu cuerpo.",
-    icon: "fas fa-seedling",
+    id: "medicina-complementaria",
+    title: "Medicina Complementaria",
+    shortTitle: "Complementaria",
+    description: "Conjunto de métodos terapéuticos integrativos diseñados para potenciar la autocuración y el bienestar general del organismo.",
+    icon: "fas fa-hands-holding-circle",
     features: [
-      "Oxigenoterapia",
-      "Terapia de activación celular",
-      "Tratamientos complementarios"
+      "Enfoque holístico e integrador",
+      "Prevención y manejo de afecciones",
+      "Terapias de soporte biológico"
     ],
     benefits: [
-      "Estimulación natural",
-      "Mejora del sistema inmune",
-      "Aumento de energía"
+      "Mejora la calidad de vida global",
+      "Tratamientos mínimamente invasivos",
+      "Atención enfocada en la persona"
     ],
-    image: "/images/services/terapias-regeneracion.jpg"
-  },
-  {
-    id: "esteticos",
-    title: "Tratamientos Estéticos",
-    shortTitle: "Estéticos",
-    description: "Procedimientos no invasivos para rejuvenecer tu apariencia utilizando técnicas de bioregeneración.",
-    icon: "fa-solid fa-spa",
-    features: [
-      "Lifting no quirúrgico",
-      "Reducción de arrugas",
-      "Tratamiento de manchas"
-    ],
-    benefits: [
-      "Sin cirugía",
-      "Resultados naturales",
-      "Sin tiempo de recuperación"
-    ],
-    image: "/images/services/esteticos.jpg"
-  },
-  {
-    id: "antiaging",
-    title: "Medicina Antiaging",
-    shortTitle: "Antiaging",
-    description: "Enfoque integral para ralentizar el proceso de envejecimiento y optimizar tu calidad de vida.",
-    icon: "fas fa-heart-pulse",
-    features: [
-      "Evaluación gerontológica",
-      "Plan de longevidad",
-      "Nutraceuticals avanzados"
-    ],
-    benefits: [
-      "Mejora de calidad de vida",
-      "Prevención de enfermedades",
-      "Longevidad saludable"
-    ],
-    image: "/images/services/antiaging.jpg"
+    image: "/images/services/medicina-complementaria.jpg"
   }
 ];
 

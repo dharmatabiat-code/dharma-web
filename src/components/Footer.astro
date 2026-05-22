@@ -11,7 +11,7 @@ interface Props {
   title?: string;
   description?: string;
   menuItems?: { label: string; href: string }[];
-  address?: { street: string; city: string };
+  address?: { street: string; city: string; colony: string };
   phone?: string;
   email?: string;
   socialLinks?: { icon: string; url: string }[];
@@ -41,8 +41,8 @@ const {
     { icon: "twitter", url: company.social?.twitter || "" },
     { icon: "instagram", url: company.social?.instagram || "" },
     { icon: "tiktok", url: company.social?.tiktok || "" },
-    { icon: "youtube", url: company.social?.youtube || "" },
-    { icon: "linkedin-in", url: company.social?.linkedin || "" },
+    //{ icon: "youtube", url: company.social?.youtube || "" },
+    //{ icon: "linkedin-in", url: company.social?.linkedin || "" },
   ],
   whatsappUrl = company.contact?.linkWhatsapp || "",
   privacyUrl = "/legales/politica-de-privacidad",
