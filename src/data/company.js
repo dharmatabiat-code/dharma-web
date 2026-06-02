@@ -13,7 +13,7 @@ export const company = {
     mapFrame: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d971.2110566565997!2d-74.2054192!3d-13.1722199!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x911287945d7c776b%3A0x989834262cc07273!2sPediatr%C3%ADa%20Dharma!5e0!3m2!1ses-419!2spe!4v1777475090819!5m2!1ses-419!2spe"
   },
   contact: {
-    phone: "+51 921 917 174",
+    phone: "+51 921 917 174", 
     email: "dharmatabiat@gmail.com",
     whatsapp: "+51 921 917 174",
     linkWhatsapp: "https://wa.me/51997307782"
